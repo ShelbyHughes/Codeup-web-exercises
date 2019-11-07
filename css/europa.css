@@ -1,0 +1,12 @@
+td {
+    background-color: pink;
+    text-decoration: orange wavy underline;
+    color: white;
+    font-size: 20px;
+}
+#list {
+    color: aqua;
+}
+.fancy-header{
+    color: red;
+}
