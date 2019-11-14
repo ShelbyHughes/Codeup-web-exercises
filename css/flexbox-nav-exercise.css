@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+nav{
+    background: lightgrey;
+}
+ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:flex;
+}
+nav a{
+    text-decoration: none;
+    color: black;
+    font-family: Verdana;
+    display: inline-block;
+    padding: 1em;
+}
+nav a:hover{
+    color: blue;
+}
+container{
+    display: flex;
+}
+.main-Side{
+    display: inline-block;
+    font-family: 'Work Sans', sans-serif;
+    font-size: xx-small;
+}
+.other-Side{
+    align-self: flex-end;
+    display: inline-block;
+    font-family: 'Work Sans', sans-serif;
+    font-size: xx-small;
+
+}
+.logo-div {
+    align-self: center;
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    padding: .2em 0;
+    position: absolute;
+}
