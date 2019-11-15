@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            display: grid;
+            grid-template-areas:
+                "header header"
+                "nav article"
+                "nav ads"
+                "footer footer";
+            height: 100vh;
+            grid-template-rows: 80px 1fr 80px 80px;
+            grid-auto-columns: 20% 1fr;
+            grid-gap: 10px;
+        }
+        header, footer, article, nav, div {
+            background: limegreen;
+            padding: 1.2em;
+        }
+        #header {
+            grid-area: header;
+        }
+        #footer {
+            grid-area: footer;
+        }
+        #article {
+            grid-area: article;
+        }
+        #nav {
+            grid-area: nav;
+        }
+        #ads {
+            grid-area: ads;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">Header</header>
+    <article id="article">Article</article>
+    <nav id="nav">Nav</nav>
+    <div id="ads">Ads</div>
+    <footer id="footer">Footer</footer>
+</body>
+</html>
