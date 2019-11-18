@@ -1,0 +1,32 @@
+@media screen and (min-width:500px) {
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        margin: 0;
+    }
+    .alert-info{
+
+    }
+    .hidden-on-desktop{
+
+    }
+    .nav-link{
+
+    }
+    .header-img{
+
+    }
+    .main{
+
+    }
+    .sub-section{
+
+    }
+    #social-media-links{
+
+    }
+    #main{
+
+    }
+}
