@@ -1,0 +1,132 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    display: grid;
+    grid-template-areas:
+            "header header header header"
+            "nav article ads ."
+            "nav article adddds ."
+            "nav article adddds ."
+            "nav . . ."
+            "nav article2 adds ."
+            "nav article2 addddds ."
+            "nav article2 addddds ."
+            "nav . . ."
+            "nav article3 addds ."
+            "nav article3 adddddds ."
+            "nav article3 adddddds ."
+            "nav . . ."
+            "nav numbers . ."
+            "nav footer footer footer"
+            "nav footer2 footer2 footer2";
+    grid-template-rows: repeat(15, 1fr);
+    grid-template-columns: 15% 1fr 20% 5%;
+    height: 100vh;
+    margin: 0;
+    overflow: auto;
+}
+a {
+    display: inline-block;
+    color:white;
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+header a:hover {
+    background: dimgray;
+    color: white;
+}
+header li{
+    padding: .5em;
+    color: white;
+    height: 100%;
+}
+header, footer, article, nav, div {
+    padding: 1.2em;
+}
+nav ul {
+    width: 100%;
+    flex-direction: column;
+}
+nav li {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+nav a {
+    width: 100%;
+    color:black;
+    border-radius: .2em;
+}
+h1{
+    color: teal;
+}
+.ads {
+    display: flex;
+    border: 1px solid lightgrey;
+    justify-content: center;
+    align-items: center;
+}
+.menu{
+    font-size: large;
+    font-weight: bold;
+}
+#header {
+    grid-area: header;
+    background-color: black;
+    color: white;
+    padding: 1em;
+
+}
+#footer {
+    grid-area: footer;
+    background: grey;
+    color: white;
+}
+#article {
+    grid-area: article;
+}
+#nav {
+    grid-area: nav;
+    background-color: lightgrey;
+}
+#ads {
+    grid-area: ads;
+}
+#article2{
+    grid-area: article2;
+}
+#article3{
+    grid-area: article3;
+}
+#adds {
+    grid-area: adds;
+}
+#addds {
+    grid-area: addds;
+}
+#adddds{
+    grid-area: adddds;
+
+}
+#addddds {
+    grid-area: addddds;
+}
+#adddddds {
+    grid-area: adddddds;
+}
+#footer2{
+    grid-area: footer2;
+    background: dimgrey;
+    color: white;
+}
+#numbers {
+    grid-area: numbers;
+    display: flex;
+    justify-content: center;
+}
