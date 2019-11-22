@@ -80,11 +80,20 @@
     // console.log(nthItem(["vivian", "daniel", "justin", "sophie"], 2));
 
     //Write a js function called getType that takes in an input and returns the type of input
-    var getType = function (input){
-        return (typeof input);
+    // var getType = function (input){
+    //     return (typeof input);
+    // }
+    //
+    // console.log(getType("dan"));
+
+    //Write a js function that takes an array and puts 2 into it
+    var put2 = function (inputArray){
+        inputArray.push(2);
+        return inputArray;
     }
 
-    console.log(getType("dan"));
+    console.log(put2(["dog", "cat", "bird", "fish"]));
+    console.log(put2(["vivian", "daniel", "justin", "sophie"]));
 </script>
 </body>
 </html>
