@@ -1,0 +1,60 @@
+body{
+    background-color: #F0F0F0;
+}
+#nav{
+    background-color: #FFFFFF;
+    height: 50px;
+}
+#cards{
+    background-color: #F0F0F0;
+}
+.abelFont{
+    font-family: 'Abel', sans-serif;
+}
+.antonFont{
+    font-family: 'Anton', sans-serif;
+}
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+> .col,
+> [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+}
+.btn-circle {
+    width: 105px;
+    height: 105px;
+    line-height: 45px;
+    text-align: center;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 15px;
+    color: white;
+    border: 5px solid white;
+}
+.badge-1{
+    background-color: #E6563B;
+    border-radius: 50%;
+}
+
+.badge-2{
+    background-color: #DEA03D;
+    border-radius: 50%;
+}
+
+.badge-3{
+    background-color: #7CB06C;
+    border-radius: 50%;
+}
+
+.badge-4{
+    background-color: #00ABA9;
+    border-radius: 50%;
+}
+.border-img{
+    border-style:solid;
+    border-width: 10px;
+    border-color: #E6E6E6;
+}
