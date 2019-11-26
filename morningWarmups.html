@@ -6,11 +6,13 @@
 </head>
 <body>
 <script>
+    // 11/8/19
     // function helloWorld() {
     //     return "Hello World";
     // }
     // console.log(helloWorld());
 
+    // 11/11/19
     // Write a javascript function that, when sent a name like "Daniel"
     // returns a string "Hello Daniel!"
 
@@ -19,6 +21,7 @@
     // }
     // console.log(helloName("Shelby"));
 
+    // 11/12/19
     //Write a js function called add(x,y) that takes two numbers and returns the sum
 
     // function add(input1, input2){
@@ -26,6 +29,7 @@
     // }
     // console.log(add(2,3));
 
+    // 11/13/19
     // Write a js function called addFour(w,x,y,z)
     // That takes in four numbers and returns the sum
 
@@ -37,12 +41,14 @@
     // console.log(addFour(17,100,2, "twenty-three"));
     // console.log(addFour("17",100,2,23));
 
+    // 11/14/19
     //write a js function called calculateRectangleArea that takes in length and width and returns the area of a rectangle
     // function calculateRectangleArea (length, width){
     //     return length * width;
     // }
     // console.log(calculateRectangleArea(5,5));
 
+    // 11/15/19
     //Write a js function called firstItem that takes in an array and returns the first item of that array
     // >> ["dog", "cat", "bird", "fish"]
     // >> [1, 7, 20, 45]
@@ -52,6 +58,7 @@
     // }
     // console.log(firstItem([1, 7, 20, 45]));
 
+    // 11/18/19
     //Write a js function called arrayLength that takes in an array and returns the length of that array
 
     // function arrayLength(array){
@@ -65,6 +72,7 @@
     // console.log(arrayLength(["dog", "cat", "bird", "fish"]));
     // console.log(arrayLength(["Apple", "Mango", "Grapes", "pineapple", "kiwi", "coconut", "dragonfruit"]));
 
+    // 11/19/19
     //Write a js function called lastItem that takes in an array and returns the last item
     // function lastItem(array){
     //     return array[array.length-1];
@@ -72,6 +80,7 @@
     //
     // console.log(lastItem(["Garnet", "Pearl", "Amethyst", "Peridot", "Lapis Lazuli"]));
 
+    // 11/20/19
     //Write a js function called nthItem that takes in an array and a number and returns the nth item from the array
     // var nthItem = function (inputArray, n) {
     //     return inputArray[n-1];
@@ -79,6 +88,7 @@
     //
     // console.log(nthItem(["vivian", "daniel", "justin", "sophie"], 2));
 
+    // 11/21/19
     //Write a js function called getType that takes in an input and returns the type of input
     // var getType = function (input){
     //     return (typeof input);
@@ -86,6 +96,7 @@
     //
     // console.log(getType("dan"));
 
+    // 11/22/19
     //Write a js function that takes an array and puts 2 into it
     // var put2 = function (inputArray){
     //     inputArray.push(2);
@@ -95,6 +106,7 @@
     // console.log(put2(["dog", "cat", "bird", "fish"]));
     // console.log(put2(["vivian", "daniel", "justin", "sophie"]));
 
+    // 11/25/19
     //Write a JS function that accepts a number and returns true if that number is greater than 10
     // var greaterThanTen = function (input){
     //     if(input > 10){
@@ -107,12 +119,34 @@
     // console.log(greaterThanTen(11));
     // console.log(greaterThanTen(4));
 
-    function greaterThanTen(numInput){
-        return numInput > 10;
+    // function greaterThanTen(numInput){
+    //     return numInput > 10;
+    // }
+    //
+    // console.log(greaterThanTen(100));
+    // console.log(greaterThanTen(1));
+
+
+    // 11/26/19
+    //Write a js function called youMayEnter that accepts a number that is an age. If the age is 13 or greater, return "You may enter!" else, return "Sorry, you need a parent or guardian to enter".
+
+    //1. write a function named youMayEnter
+    //2. parameter is a number (age)
+    //3. age >= 13 -> "You may enter!" (conditional)
+    //4. if they are < 13 -> "Sorry, you need a parent or guardian to enter"
+
+    var youMayEnter = function(age){
+        console.log(age);
+        if(age >= 13){
+            return "You may enter!";
+        }else{
+            return "Sorry, you need a parent or guardian to enter.";
+        }
     }
 
-    console.log(greaterThanTen(100));
-    console.log(greaterThanTen(1));
+    console.log(youMayEnter(25)); // You may enter
+    console.log(youMayEnter(7)); // Sorry message
+    console.log(youMayEnter(13)) // You may enter
 </script>
 </body>
 </html>
