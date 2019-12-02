@@ -1,68 +1,62 @@
 "use strict";
 console.log("Hello from external JavaScript");
+
 alert("Welcome to my website!");
+
 var userInput = prompt('What is your favorite color?');
 alert('Great, ' + userInput + ' is my favorite color too!');
 
 // question 3 - part 1
 
-var littleMermaid = prompt('How long did you rent The Little Mermaid for?');
-var brotherBear =  prompt('How long did you rent Brother Bear for?');
-var hercules = prompt('How long did you rent Hercules for?');
-var pricePerDay = prompt('How much is the rental fee?');
+// 1. ask user what the rental fee is -> prompt & variable
+// 2. ask user how many days little mermaid -> prompt & variable
+// 3. ask user how many days brother bear -> prompt & variable
+// 4. ask user how many days hercules -> prompt & variable
+// 5. calculate the total price * number of days
+// 6. alert the total price
 
-var pricePerAll = function(){
-    var total = (littleMermaid * pricePerDay) + (brotherBear * pricePerDay) + (hercules * pricePerDay);
-    return total;
-}
-
- alert(pricePerAll());
+var dailyRentalRate = Number(prompt("How much is the daily rental rate?"));
+var littleMermaid = Number(prompt('How many days are you renting The Little Mermaid?'));
+var brotherBear =  Number(prompt('How many days are you renting Brother Bear?'));
+var hercules = Number(prompt('How many days are you renting Hercules?'));
+var totalCost = (littleMermaid + brotherBear + hercules) * dailyRentalRate;
+var alertMessage = "You owe $: " + totalCost;
+alert(alertMessage);
 
 // question 3 - part 2
 
-var googleRate = prompt("How much do you make an hour at Google?");
-var googleTime = prompt("How many hours did you work at Google this week?");
-var amazonRate = prompt("How much do you make an hour at Amazon?");
-var amazonTime = prompt("How many hours did you work at Amazon this week?");
-var fbRate = prompt("How much do you make an hour at Facebook?");
-var fbTime = prompt("How many hours did you work at Facebook this week?");
+var googleRate = Number(prompt("What is your Google rate?"));
+var amazonRate = Number(prompt("What is your Amazon rate?"));
+var facebookRate = Number(prompt("What is your Facebook rate?"));
 
-var weeklyPaycheck = function(){
-    var totalHours = (googleRate * googleTime) + (amazonRate * amazonTime) + (fbRate * fbTime);
-    return totalHours;
-}
+var googleHours = Number(prompt("How many hours did you work at Google?"));
+var amazonHours = Number(prompt("How many hours did you work at Amazon"));
+var facebookHours = Number(prompt("How many hours did you work at Facebook?"));
 
-alert(weeklyPaycheck());
+var totalPay = (googleRate * googleHours) + (amazonRate * amazonHours) + (facebookRate * facebookHours);
+
+alert(totalPay);
 
 // question 3 - part 3
 
-var conflict = prompt("Does this class conflict with your other classes?");
-var fullness = prompt("Is this class full yet?");
+var classIsNotFull = confirm("Class is not full");
+var noScheduleConflicts = confirm("Schedules do not conflict");
 
-var classCheckList = function(){
-    if(conflict == "no" && fullness == "no"){
-        return true;
-    }else{
-        return false;
-    }
-}
+console.log("class not full " + classIsNotFull);
+console.log("no schedule conflicts " + noScheduleConflicts);
 
-alert(classCheckList());
+var studentEnrolled = classIsNotFull && noScheduleConflicts;
+
+console.log(studentEnrolled);
+
+alert("Student can enroll: " + studentEnrolled);
 
 // question 3 - part 4
 
-var krogerCard = prompt("Do you have a Kroger Card?");
-var numberOfItems = prompt("How many items do you have?");
-var offerExpired = prompt("Is the offer still valid?");
+var numberOfItems = Number(prompt("How many items for checkout?")); //number
+var offerValid = confirm("Is the offer valid?"); //boolean
+var isPremiumMember = confirm("Are you a premium member?"); //boolean
 
-var discount = function(){
-    if(krogerCard == "yes"){
-        return true;
-    } else if(numberOfItems >= 2 && offerExpired == "yes"){
-        return true;
-    }else{
-        return false;
-    }
-}
+var discountApplied = offerValid && (isPremiumMember || numberOfItems > 2);
 
-console.log(discount());
+alert("Can use discount: " + discountApplied);
