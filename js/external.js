@@ -15,7 +15,8 @@ var pricePerAll = function(){
     var total = (littleMermaid * pricePerDay) + (brotherBear * pricePerDay) + (hercules * pricePerDay);
     return total;
 }
- console.log(pricePerAll());
+
+ alert(pricePerAll());
 
 // question 3 - part 2
 
@@ -30,7 +31,8 @@ var weeklyPaycheck = function(){
     var totalHours = (googleRate * googleTime) + (amazonRate * amazonTime) + (fbRate * fbTime);
     return totalHours;
 }
-console.log(weeklyPaycheck());
+
+alert(weeklyPaycheck());
 
 // question 3 - part 3
 
@@ -45,7 +47,8 @@ var classCheckList = function(){
     }
 }
 
-console.log(classCheckList());
+alert(classCheckList());
+
 // question 3 - part 4
 
 var krogerCard = prompt("Do you have a Kroger Card?");
