@@ -87,6 +87,11 @@ console.log(calculateTip(0.20, 20));
 console.log(calculateTip(0.25, 25.50));
 console.log(calculateTip(0.15, 33.42));
 
+var totalBillPlusTip = function(tipPercent, billTotal){
+    var tip = calculateTip(tipPercent, billTotal);
+    return parseFloat(tip) + parseFloat(billTotal);
+}
+
 /**
  * TODO:
  * Use prompt and alert in combination with your calculateTip function to
@@ -97,7 +102,8 @@ console.log(calculateTip(0.15, 33.42));
 var tipAmount = Number(prompt('What percentage would like to tip? (0.00 to 1.00)'));
 var billTotal = Number(prompt('What was the total for your bill?'));
 var total = (calculateTip(tipAmount, billTotal));
-alert("Leave $" + total + " as a tip.");
+var amountTotal = totalBillPlusTip(tipAmount, billTotal);
+alert("Leave $" + total + " as a tip. Altogether that is $" + amountTotal);
 
 /**
  * TODO:
