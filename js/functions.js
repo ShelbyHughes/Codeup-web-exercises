@@ -58,14 +58,15 @@ var random = Math.floor((Math.random() * 3) + 1);
  */
 
 function isTwo(number) {
-    if(number == 2){
-        return true;
-    }else{
-        return false
-    }
+    return number == 2;
 }
 
+console.log(isTwo(1));
+console.log(isTwo(2));
+console.log(isTwo(3));
+
 console.log(isTwo(random));
+
 /**
  * TODO:
  * Create a function named 'calculateTip' to calculate a tip on a bill at a
@@ -85,6 +86,7 @@ function calculateTip(tipAmount, billTotal){
 console.log(calculateTip(0.20, 20));
 console.log(calculateTip(0.25, 25.50));
 console.log(calculateTip(0.15, 33.42));
+
 /**
  * TODO:
  * Use prompt and alert in combination with your calculateTip function to
@@ -92,10 +94,10 @@ console.log(calculateTip(0.15, 33.42));
  * then display the dollar amount they should tip
  */
 
-var tipAmount = Number(prompt('How much would you want to tip?'));
-var billTotal = Number(prompt('How much was your bill?'));
+var tipAmount = Number(prompt('What percentage would like to tip? (0.00 to 1.00)'));
+var billTotal = Number(prompt('What was the total for your bill?'));
 var total = (calculateTip(tipAmount, billTotal));
-alert("Your total amount is: " + total);
+alert("Leave $" + total + " as a tip.");
 
 /**
  * TODO:
@@ -111,9 +113,14 @@ alert("Your total amount is: " + total);
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
-function applyDiscount(price, discount){
-    var originalPrice = parseFloat(price);
-    var discountPercent = parseFloat(discount);
-    return originalPrice - (originalPrice * discountPercent);
+
+var applyDiscount = function(price, discountPercentage){
+    var discountAmount = price * discountPercentage;
+    return price - discountAmount;
 }
+
 console.log(applyDiscount(100, .2));
+console.log(applyDiscount(45.99, 0.12));
+console.log(applyDiscount(-100, .2));
+console.log(applyDiscount(-100, "banana"));
+console.log(applyDiscount(100, 32));
