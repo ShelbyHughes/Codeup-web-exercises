@@ -171,13 +171,13 @@ var calculateTotal = function(luckyNumber, totalAmount){
     }
 }
 
-calculateTotal(0, 100);
-calculateTotal(1, 100);
-calculateTotal(2, 100);
-calculateTotal(3, 100);
-calculateTotal(4, 100);
-calculateTotal(5, 100);
-calculateTotal(6,100);
+calculateTotal(0, 200);
+calculateTotal(1, 200);
+calculateTotal(2, 200);
+calculateTotal(3, 200);
+calculateTotal(4, 200);
+calculateTotal(5, 200);
+calculateTotal(6,200);
 
 /**
  * TODO:
