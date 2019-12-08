@@ -49,7 +49,7 @@
 
     // Create functions for the Calculator class that can do the following:
     //
-    // Add two numbers.
+    //     Add two numbers.
     //     Subtract two numbers.
     //     Multiply two numbers.
     //     Divide two numbers.
@@ -88,6 +88,42 @@
     console.log(programmers(147, 33, 526)); //493
     console.log(programmers(33, 72, 74)); //41
     console.log(programmers(1, 5, 9)); //8
+
+    // Here's an image of four models. Some of the cubes are hidden behind other cubes. Model one consists of one cube. Model two consists of four cubes, and so on...
+    // Write a function that takes a number n and returns the number of stacked boxes in a model n levels high, visible and invisible.
+
+    function stackBoxes(n) {
+        return n * n;
+    }
+
+    console.log(stackBoxes(1)); //1
+    console.log(stackBoxes(2)); //4
+    console.log(stackBoxes(0)); //0
+
+    // Create a function that takes a number as an argument and returns the amount of digits it has.
+
+    function findDigitAmount(num) {
+        var stringNum = num.toString();
+        return stringNum.length;
+    }
+
+    console.log(findDigitAmount(123)); //3
+    console.log(findDigitAmount(56)); //2
+    console.log(findDigitAmount(7154)); //4
+    console.log(findDigitAmount(61217311514)); //11
+    console.log(findDigitAmount(0)); //1
+
+    // Create a function that converts a date formatted as MM/DD/YYYY to YYYYDDMM.
+
+    function formatDate(date) {
+        var splitDate = date.split('/');
+        splitDate.reverse();
+        return splitDate[0] + splitDate[1] + splitDate[2];
+    }
+
+    console.log(formatDate("11/12/2019")); //"20191211"
+    console.log(formatDate("12/31/2019")); //"20193112"
+    console.log(formatDate("01/15/2019")); //"20191501"
 </script>
 
 </body>
