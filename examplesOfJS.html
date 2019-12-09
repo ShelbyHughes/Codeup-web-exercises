@@ -77,17 +77,6 @@
     console.log(calculator.multiply(10, 5)); //50
     console.log(calculator.divide(10, 5)); //2
 
-    // You hired three programmers and you (hopefully) pay them. Create a function that takes three numbers (the hourly wage of each programmer) and returns the difference between the highest-paid programmer and the lowest-paid.
-
-    function programmers(one, two, three) {
-        var people = [one, two, three];
-        people = people.sort(function(a, b){return a-b});
-        return people[people.length - 1] - people[0];
-    }
-
-    console.log(programmers(147, 33, 526)); //493
-    console.log(programmers(33, 72, 74)); //41
-    console.log(programmers(1, 5, 9)); //8
 
     // Here's an image of four models. Some of the cubes are hidden behind other cubes. Model one consists of one cube. Model two consists of four cubes, and so on...
     // Write a function that takes a number n and returns the number of stacked boxes in a model n levels high, visible and invisible.
