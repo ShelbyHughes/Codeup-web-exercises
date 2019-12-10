@@ -157,19 +157,37 @@
     // 4. crocodile -> after a while
     // 5. something different -> so long
 
-    var seeYouLater = function(inputString){
-        if(inputString == "alligator"){
-            return "See you later alligator!";
-        } else if(inputString == "crocodile"){
-            return "After a while, crocodile!";
-        } else {
-            return "So long!";
+    // var seeYouLater = function(inputString){
+    //     if(inputString == "alligator"){
+    //         return "See you later alligator!";
+    //     } else if(inputString == "crocodile"){
+    //         return "After a while, crocodile!";
+    //     } else {
+    //         return "So long!";
+    //     }
+    // }
+    //
+    // console.log(seeYouLater("alligator")); //see you later
+    // console.log(seeYouLater("crocodile")); //after a while
+    // console.log(seeYouLater("dog")); //so long
+
+    //Write a function called "contains" that receives an array and another param and returns true if the param is found in the array, there is an easy way, but if you find it maybe try the loop way, too
+
+    // function contains(arr, param){
+    //     return arr.includes(param);
+    // }
+
+    function contains(arr, param){
+        for(var i = 0;i<arr.length;i++){
+            if(arr[i] === param){
+                return true;
+            }
         }
+        return false;
     }
 
-    console.log(seeYouLater("alligator")); //see you later
-    console.log(seeYouLater("crocodile")); //after a while
-    console.log(seeYouLater("dog")); //so long
+    console.log(contains([1,2,3], 3));
+    console.log(contains([1,2,3], 4));
 </script>
 </body>
 </html>

@@ -52,3 +52,15 @@ var petNames = ["Princess", "Delilah", "Jephery", "Johnathan", "Pablo", "Enrique
 for(var j = 0;j<petNames.length;j++){
     console.log(petNames[j]);
 }
+
+var tictactoe = [[' ', ' ', ' '],
+                 [' ', ' ', ' '],
+                 [' ', ' ', ' ']];
+var takeTurn = function(who, row, column){
+    tictactoe[row][column] = who;
+}
+var printBoard = function(){
+    for(var i = 0;i<tictactoe.length;i++){
+        console.log(' ' + tictactoe[i][0] +  ' | ' + tictactoe[i][1] + ' | ' + tictactoe[i][2]);
+    }
+}
