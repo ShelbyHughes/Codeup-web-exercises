@@ -31,15 +31,11 @@
     console.log(planetsStringTwo);
 
 
-    function unorderedList(array) {
-        var list = document.createElement('ul');
-        for (var i = 0; i < array.length; i++) {
-            var item = document.createElement('li');
-            item.appendChild(document.createTextNode(array[i]));
-            list.appendChild(item);
-        }
-        return list;
-    }
+    var planetsUl = '<ul>';
+    planetsArray.forEach(function(planet){
+        planetsUl += "<li>" + planet + "</li>";
+    });
+    planetsUl += "</ul>";
 
-    console.log(unorderedList(planetsArray));
+    console.log(planetsUl)
 })();
