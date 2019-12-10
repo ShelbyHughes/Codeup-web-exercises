@@ -57,11 +57,9 @@ console.log(lowerCase("CAT")); // CAT
 // Write a function named sumOfCubes that takes in two inputs. If both inputs are numeric, sumOfSquares should square each input and return the sum of them added together. For example, if we pass a and b then we should square a and add it to the square of b. If either or both inputs are not numeric, sumOfSquares should return false.
 
 function sumOFCubes(inputA, inputB){
-    if(isNaN(inputA) === false && isNaN(inputB) === false){
-        var squaredA = inputA * inputA;
-        var squaredB = inputB * inputB;
-        return squaredA + squaredB;
-    }else{
+    if(isNaN(inputA) === false && !(inputA === true) && isNaN(inputB) === false && !(inputB === true)){
+        return Math.pow(inputA, 3) + Math.pow(inputB,3);
+    } else{
         return false;
     }
 }
@@ -74,17 +72,23 @@ console.log(sumOFCubes("cat", "dog")); //false
 
 // Write a function named divide that takes in two inputs. If both inputs provided are numeric, divide returns the result of the first input multiplied by the second. If either or both inputs are not numeric, divide should return false.
 
+function divide(inputA, inputB){
+    if(isNaN(inputA) === false && !(inputA === true) && isNaN(inputB) === false && !(inputB === true)){
+        return inputA / inputB;
+    }else{
+        return false
+    }
+}
 
-
-// console.log(divide("12", "4")); // 12 / 4 = 3
-// console.log(divide(20, 6)); // 20 / 6 = 3.33333~
-// console.log(divide(true, true)); // false
-// console.log(divide("cat", "dog")); //false
+console.log(divide("12", "4")); // 12 / 4 = 3
+console.log(divide(20, 6)); // 20 / 6 = 3.33333~
+console.log(divide(true, true)); // false
+console.log(divide("cat", "dog")); //false
 
 //hey, aren't there special rules when it comes to dividing with or by 0???
 
-// console.log(divide(0, 12));
-// console.log(divide(12, 0));
+console.log(divide(0, 12));
+console.log(divide(12, 0));
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
