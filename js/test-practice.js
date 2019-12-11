@@ -39,10 +39,8 @@ console.log(toTheThird("cat")); // false
 // Define a function named lowerCase that takes in a single input. If the input is not a string, return false. If the input is a non-numeric string, then return it with all the letters capitalized.
 
 function lowerCase(input){
-    if(typeof input === 'string'){
+    if(typeof input === 'string' && isNaN(input)){
         return input.toUpperCase();
-    }else if(typeof input == 'number'){
-        return false;
     }else{
         return false;
     }
@@ -95,15 +93,23 @@ console.log(divide(12, 0));
 
 // Write a function named reverseUpperCaseString that takes in a single input. If the input is a numeric string, then return false. If the input is a string, return that string capitalized and reversed
 
+function reverseUpperCaseString(input){
+    if(typeof input === 'string' && isNaN(input)){
+        var capital = input.toUpperCase();
+        var reverse = capital.reverse;
+        return reverse;
+    }else{
+        return false;
+    }
+}
 
 
-
-// console.log(reverseUpperCaseString(true)); // false
-// console.log(reverseUpperCaseString(18)); // false
-// console.log(reverseUpperCaseString("15")); // false
-// console.log(reverseUpperCaseString("cat")); // TAC
-// console.log(reverseUpperCaseString("RaCeCaR")); // RACECAR
-// console.log(reverseUpperCaseString("yRaNoiTCId")); // DICTIONARY
+console.log(reverseUpperCaseString(true)); // false
+console.log(reverseUpperCaseString(18)); // false
+console.log(reverseUpperCaseString("15")); // false
+console.log(reverseUpperCaseString("cat")); // TAC
+console.log(reverseUpperCaseString("RaCeCaR")); // RACECAR
+console.log(reverseUpperCaseString("yRaNoiTCId")); // DICTIONARY
 
 
 
