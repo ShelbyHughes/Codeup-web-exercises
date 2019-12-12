@@ -88,11 +88,7 @@
             title: "The Hitchhikers Guide To The Galaxy",
             author: {
                 firstName: "Douglas",
-                lastName: "Adams",
-                report: function () {
-                    console.log(this.title);
-                    console.log(this.author.firstName + " " + this.author.lastName);
-                }
+                lastName: "Adams"
             }
         },
         {
@@ -125,10 +121,6 @@
         }
     ]
 
-    books.forEach(function(book){
-        book.report();
-    });
-
     /**
      * TODO:
      * Loop through the books array and output the following information about
@@ -154,7 +146,12 @@
      *      ...
      */
 
-
+    books.forEach(book => {
+      console.log("Book #"+ books.indexOf(book));
+      console.log("Title: " + book.title);
+      console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+      console.log("---");
+    });
 
     /**
      * Bonus:
@@ -166,5 +163,24 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+
+    function createBook(title, author) {
+        var authorName = author.split(' ');
+        return {
+            author:{
+                firstName: authorName[0],
+                lastName: authorName[1]
+            },
+            title: title
+        };
+    }
+
+    function showBookInfo(book){
+        console.log("Title: " + book.title);
+        console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+        console.log("---");
+    }
+
+    showBookInfo(createBook("Fuzzy Nation", "John Scalzi"));
 
 })();
