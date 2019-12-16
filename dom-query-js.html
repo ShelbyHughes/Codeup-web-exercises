@@ -46,23 +46,29 @@
 
         // TODO: Uncomment the next line and get all list items
 
-        var listItems = document.getElementsByTagName('li');
+        var listItems = document.getElementsByTagName("li");
 
         // TODO: Set text color on every other list item to grey
 
-        listItems.style.color = '#857d81';
+        for(var i = 0; i<listItems.length; i++){
+            if(i % 2 !== 0){
+                listItems[i].style.color = '#857d81';
+            }
+        }
 
         // TODO: Set text color of li with dbid = 1 to blue
 
-        dbid[1].style.color = '#0000FF';
+        listItems[0].style.color = '#0000FF';
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
 
-        var subParagraphs = document.getElementsByClassName('sub-paragraph');
+        var subParagraphs = document.getElementsByClassName("sub-paragraph");
+
+        console.log(subParagraphs);
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
 
-        subParagraphs.innerHTML("Mission Accomplished!");
+        subParagraphs[0].innerText = "Mission Accomplished!";
 
     })();
 </script>

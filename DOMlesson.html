@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<h1 id="header">Happy Holidays</h1>
+<h3>Wish List</h3>
+<ul id="wishList">
+<!--    <li>Great Career</li>-->
+<!--    <li class="even">2 Front Teeth</li>-->
+<!--    <li>Oculus Quest</li>-->
+<!--    <li class="even">Nintendo Switch</li>-->
+<!--    <li>Macbook Pro 16-inch</li>-->
+<!--    <li class="even">Valve Index</li>-->
+</ul>
+
+<p class="lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus beatae consequuntur dolor earum eius facilis fugit quia similique tempora vitae?</p>
+<h1 id="text">Lorem ipsum dolor sit amet.</h1>
+<textarea>Here here here her</textarea>
+<a id="codeup" href="http://codeup.com">Codeup</a>
+<script>
+    console.log(document)
+    var header = document.getElementById("header");
+    console.log(header);
+
+    var thingsIWant =["Great career", "2 Front Teeth", "Oculus Quest", "Nintendo Switch", "Macbook Pro 16 - inch", "Valve Index"];
+
+    var evens = document.getElementsByClassName("even");
+    // console.log("evens:" + evens);
+
+    // evens.forEach(function(even){
+    //     console.log(even);
+    // }) //this wont work
+
+    var wishList = document.getElementById("wishList");
+    var htmlString ="";
+    for(var i = 0; i<thingsIWant.length; i++){
+        if(i % 2 !== 0){
+            htmlString += "<li class='even'>" + thingsIWant[i] +"</li>";
+        }else{
+            htmlString += "<li class='odd'>" + thingsIWant[i] + "</li>";
+        }
+    }
+
+    wishList.innerHTML = htmlString;
+
+    setTimeout(function(){
+        for (var i = 0;i<evens.length;i++){
+            // console.log(evens[i]);
+            evens[i].innerHTML = "<em>Money</em>";
+            console.log(evens[i].innerHTML);
+        }}, 7000);
+
+    var odds = document.getElementsByClassName("odd");
+    for (var i = 0;i<odds.length;i++){
+        odds[i].style.color = "red";
+        odds[i].style["background-color"] = "green";
+    }
+
+    var odds = document.getElementsByClassName("odd");
+    for(var i = 0;i<odds.length;i++){
+        odds[i].setAttribute("class", "odd redBackground greenText");
+        // odds[i].style.color = "red";
+        // odds[i].style[background-color] = "green";
+    }
+
+    var codeUpLink = document.getElementById("codeUp").getAttribute("href");
+    console.log(codeUpLink);
+
+
+    // for (var i = 0;i<evens.length;i++){
+    //     // console.log(evens[i]);
+    //     evens[i].innerText = "<em>Money</em>";
+    //     console.log(evens[i].innerHTML);
+    // }
+
+    // var lis = document.getElementsByTagName("li");
+    // console.log(lis);
+    // for(var i=0;i<lis.length;i++){
+    //     console.log(lis[i]);
+    // }
+
+    var textOutput = document.getElementById("text");
+    console.log(textOutput);
+
+    var lorems = document.getElementsByClassName("lorem");
+    console.log(lorems);
+
+    var textAreas = document.getElementsByTagName("textarea");
+    console.log(textAreas);
+
+</script>
+</body>
+</html>
