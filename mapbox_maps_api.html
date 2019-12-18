@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Mapbox Map</title>
+    <!-- Mapbox CSS -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Custom CSS -->
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>My First Mapbox Map!</h1>
+
+<!-- The HTML element that serves as the Mapbox container -->
+<div id='map'></div>
+
+<!-- Mapbox JS -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+
+<!-- Custom JS -->
+<script>
+    geocode(prompt("Address, please"), mapboxToken).then(function (result) {
+        map.setCenter(result)
+        map.setZoom(15)
+        var marker = new mapboxgl.Marker()
+            .setLngLat(result)
+            .addTo(map);
+    });
+    // geocode("10003 NW Military Suite 2115 San Antonio, TX 78230", mapboxToken).then(function (result) {
+    //     console.log(result)
+    // });
+    // geocode("620 S Presa St, San Antonio, TX 78210", mapboxToken).then(function (result) {
+    //     console.log(result)
+    // });
+    // geocode("818 NW Loop 410, Bldg. L-7, San Antonio, TX 78216", mapboxToken).then(function (result) {
+    //     console.log(result)
+    // });
+
+    mapboxgl.accessToken = mapboxToken;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 10,
+        center: [-98.53492, 29.55742]
+    });
+
+    // var marker = new mapboxgl.Marker()
+    //     .setLngLat([-98.53492, 29.55742])
+    //     .addTo(map)
+    //     .togglePopup();
+    //
+    // var popup = new mapboxgl.Popup()
+    //     .setLngLat([-98.53492, 29.55742])
+    //     .setHTML("Greens Vegetarian Cuisine")
+    //     .addTo(map);
+    //
+    // marker.setPopup(popup);
+
+    var resturants =  [
+            {
+                name: "Greens Vegetarian Cuisine",
+                coordinates: [-98.53492, 29.55742],
+                text: "My favorite restaurant"
+            },
+            {
+                name: "Senior Veggie",
+                coordinates: [-98.50169, 29.51954],
+                text: "Good vegetarian/vegan restaurant"
+            },
+            {
+                name: "Earth Burger",
+                coordinates: [-98.48831, 29.415101],
+                text: "The first all vegetarian fast food joint"
+            }
+        ];
+
+    resturants.forEach(function(restaurant){
+        var marker = new mapboxgl.Marker()
+            .setLngLat(restaurant.coordinates)
+            .addTo(map);
+        var popup = new mapboxgl.Popup()
+            .setLngLat(restaurant.coordinates)
+            .setHTML(restaurant.name + "<br>"+ restaurant.text)
+        marker.setPopup(popup);
+    });
+</script>
+</body>
+</html>
