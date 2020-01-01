@@ -383,6 +383,82 @@
     console.log(addEnding(["clever", "meek", "hurried", "nice"], "ly")); // ➞ ["cleverly", "meekly", "hurriedly", "nicely"]
     console.log(addEnding(["new", "pander", "scoop"], "er")); // ➞ ["newer", "panderer", "scooper"]
     console.log(addEnding(["bend", "sharpen", "mean"], "ing")); // ➞ ["bending", "sharpening", "meaning"]
+
+    // Given an array of integers, return the difference between the largest and smallest integers in the array.
+
+    function difference(nums) {
+        var sorted = nums.slice().sort(function(a, b) {
+            return a - b;
+        });
+
+        var smallest = sorted[0];
+        var largest  = sorted[sorted.length - 1];
+        var difference = largest - smallest;
+        return difference;
+    }
+
+    console.log(difference([10, 15, 20, 2, 10, 6])); // ➞ 18
+    // 20 - 2 = 18
+    console.log(difference([-3, 4, -9, -1, -2, 15])); // ➞ 24
+    // 15 - (-9) = 24
+
+    // In semantic versioning a piece of software can be represented in a format like this example: 6.1.9.
+    //
+    //     The first number is the major version.
+    //     The second number is the minor version.
+    //     The third number is the patch (bug fixes).
+    // Write three separate functions, one to retrieve each element in the semantic versioning specification.
+
+    function retrieveMajor(semver) {
+        var array = semver.split(".");
+        return array[0];
+    }
+
+    function retrieveMinor(semver) {
+        var array = semver.split(".");
+        return array[1];
+    }
+
+    function retrievePatch(semver) {
+        var array = semver.split(".");
+        return array[array.length - 1];
+    }
+
+    // 6.1.9
+    console.log(retrieveMajor("6.1.9")); // ➞ "6"
+    console.log(retrieveMinor("6.1.9")); // ➞ "1"
+    console.log(retrievePatch("6.1.9")); // ➞ "9"
+    // 2.1.0
+    console.log(retrieveMajor("2.1.0")); // ➞ "2"
+    console.log(retrieveMinor("2.1.0")); // ➞ "1"
+    console.log(retrievePatch("2.1.0")); // ➞ "0"
+
+    // Create a function that takes an array of numbers and returns the smallest number in the set.
+
+    function findSmallestNum(arr) {
+        var sorted = arr.slice().sort(function(a, b) {
+            return a - b;
+        });
+        return sorted[0];
+    }
+
+    console.log(findSmallestNum([34, 15, 88, 2])); // ➞ 2
+    console.log(findSmallestNum([34, -345, -1, 100])); // ➞ -345
+    console.log(findSmallestNum([-76, 1.345, 1, 0])); // ➞ -76
+    console.log(findSmallestNum([0.4356, 0.8795, 0.5435, -0.9999])); // ➞ -0.9999
+    console.log(findSmallestNum([7, 7, 7])); // ➞ 7
+
+    // Write a function that takes three string arguments (first, last, word) and returns true if (when alphabetically sorted) word is found between first and last.
+
+    function isBetween(first, last, word) {
+        var array = [first, last, word];
+        array = array.sort();
+        return array[1] === word;
+    }
+
+    console.log(isBetween("apple", "banana", "azure")); // ➞ true
+    console.log(isBetween("monk", "monument", "monkey")); // ➞ true
+    console.log(isBetween("bookend", "boolean", "boost")); // ➞ false
 </script>
 
 
