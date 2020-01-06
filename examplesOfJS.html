@@ -459,6 +459,64 @@
     console.log(isBetween("apple", "banana", "azure")); // ➞ true
     console.log(isBetween("monk", "monument", "monkey")); // ➞ true
     console.log(isBetween("bookend", "boolean", "boost")); // ➞ false
+
+    // Write a function that returns true if two rooks can attack each other, and false otherwise.
+
+    function canCapture([yourRook, opponentsRook]) {
+        var char = yourRook.charAt(0);
+        var char2 = yourRook.charAt(1);
+        var char3 = opponentsRook.charAt(0);
+        var char4 = opponentsRook.charAt(1);
+        if(char === char3 || char2 === char4){
+            return true;
+        }else{
+            return false
+        }
+    }
+
+    console.log(canCapture(["A8", "E8"])); // ➞ true
+    console.log(canCapture(["A1", "B2"])); // ➞ false
+    console.log(canCapture(["H4", "H3"])); // ➞ true
+    console.log(canCapture(["F5", "C8"])); // ➞ false
+
+    // Create a function to calculate the determinant of a 2 x 2 matrix. The determinant of the following matrix is: ad - bc:
+
+    //[[a, b], [c, d]]
+
+    function calcDeterminant(matrix) {
+        return (matrix[0][0]*matrix[1][1])-(matrix[0][1]*matrix[1][0]);
+    }
+
+    console.log(calcDeterminant([
+        [1, 2],
+        [3, 4]
+    ])); // ➞ -2
+
+    console.log(calcDeterminant([
+        [5, 3],
+        [3, 1]
+    ])); // ➞ -4
+
+    console.log(calcDeterminant([
+        [1, 1],
+        [1, 1]
+    ])); // ➞ 0
+
+    // Create a function that takes a number as an argument and returns an array of numbers counting down from this number to zero.
+
+    function countdown(start) {
+        var array = [];
+        for(i = start; i>=0; i--){
+            array.push(i);
+        }
+        return array;
+    }
+
+    console.log(countdown(5)); // ➞ [5, 4, 3, 2, 1, 0]
+    console.log(countdown(1)); // ➞ [1, 0]
+    console.log(countdown(0)); // ➞ [0]
+
+
 </script>
 
 
