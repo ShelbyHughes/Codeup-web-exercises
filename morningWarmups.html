@@ -304,7 +304,22 @@
         return bucket;
     }
 
-    console.log(getGoldReindeer(reindeerList));
+    // console.log(getGoldReindeer(reindeerList));
+
+    function fizzBuzz(num){
+        for(var i=1; i<=num; i++) {
+            if (num % 15 === 0) {
+                console.log("fizzbuzz");
+            } else if (num % 3 === 0) {
+                console.log("fizz");
+            } else if (num % 5 === 0) {
+                console.log("buzz");
+            } else {
+                console.log(i);
+            }
+        }
+    }
+
 </script>
 </body>
 </html>
