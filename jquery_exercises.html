@@ -13,36 +13,36 @@
         /*.orange{*/
         /*    background-color: orange;*/
         /*}*/
-        #blue{
-            background-color: blue;
-        }
-        #yellow{
-            background-color: yellow;
-        }
+        /*#blue{*/
+        /*    background-color: blue;*/
+        /*}*/
+        /*#yellow{*/
+        /*    background-color: yellow;*/
+        /*}*/
         /*.red{*/
         /*    background-color: red;*/
         /*}*/
-        #green{
-            background-color: green;
-        }
-        #underlined{
-            text-decoration: underline;
-        }
-        #emphasis{
-            font-style: italic;
-        }
-        #smallText{
-            font-size: 8pt;
-        }
-        #giantText{
-            font-size: xx-large;
-        }
-        #dirtyBlonde{
-            color: darkgoldenrod;
-        }
-        .codeup{
-            border: 1px solid red;
-        }
+        /*#green{*/
+        /*    background-color: green;*/
+        /*}*/
+        /*#underlined{*/
+        /*    text-decoration: underline;*/
+        /*}*/
+        /*#emphasis{*/
+        /*    font-style: italic;*/
+        /*}*/
+        /*#smallText{*/
+        /*    font-size: 8pt;*/
+        /*}*/
+        /*#giantText{*/
+        /*    font-size: xx-large;*/
+        /*}*/
+        /*#dirtyBlonde{*/
+        /*    color: darkgoldenrod;*/
+        /*}*/
+        /*.codeup{*/
+        /*    border: 1px solid red;*/
+        /*}*/
     </style>
 </head>
 <body>
@@ -105,24 +105,41 @@
 </ul>
 <div id="smallText">Hes just better than everyone else</div>
 <script>
-    $("#yellow").addClass("yellow");
-    $("#blue").addClass("blue");
-    $("#underlined").addClass("underlined");
-    $("#emphasis").addClass("emphasis");
-    $("#green").addClass("green");
-    $("#smallText").addClass("smallText");
-    $("#giantText").addClass("giantText");
-    $("#dirtyBlonde").addClass("dirtyBlonde");
+    // $("#yellow").addClass("yellow");
+    // $("#blue").addClass("blue");
+    // $("#underlined").addClass("underlined");
+    // $("#emphasis").addClass("emphasis");
+    // $("#green").addClass("green");
+    // $("#smallText").addClass("smallText");
+    // $("#giantText").addClass("giantText");
+    // $("#dirtyBlonde").addClass("dirtyBlonde");
+    //
+    // var blueText = document.getElementById("blue");
+    // console.log(blueText);
+    //
+    // $('li').css('font-size', '20px');
+    //
+    // $('li, p, h1').css('background-color', 'yellow');
+    //
+    // var h1Text = document.getElementsByTagName("h1");
+    // console.log(h1Text);
 
-    var blueText = document.getElementById("blue");
-    console.log(blueText);
+    $('h1').click(function() {
+        $(this).css('background-color', '#FFAA00')
+    });
 
-    $('li').css('font-size', '20px');
+    $('p').dblclick(function(e) {
+        $(this).css('font-size', '18px')
+    });
 
-    $('li, p, h1').css('background-color', 'yellow');
-
-    var h1Text = document.getElementsByTagName("h1");
-    console.log(h1Text);
+    $('li').hover(
+        function() {
+            $(this).css('color', '#FF0000');
+        },
+        function() {
+            $(this).css('color', '#000000');
+        }
+    );
 </script>
 </body>
 </html>
