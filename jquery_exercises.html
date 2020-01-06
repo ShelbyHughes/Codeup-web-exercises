@@ -4,73 +4,125 @@
     <meta charset="UTF-8">
     <title>jQuery Exercises</title>
     <style>
-        .purple{
-            background-color: purple;
-        }
-        .cyan{
-            color: cyan;
-        }
-        .orange{
-            background-color: orange;
-        }
-        .blue{
+        /*.purple{*/
+        /*    background-color: purple;*/
+        /*}*/
+        /*.cyan{*/
+        /*    color: cyan;*/
+        /*}*/
+        /*.orange{*/
+        /*    background-color: orange;*/
+        /*}*/
+        #blue{
             background-color: blue;
         }
-        .yellow{
+        #yellow{
             background-color: yellow;
         }
-        .red{
-            background-color: red;
+        /*.red{*/
+        /*    background-color: red;*/
+        /*}*/
+        #green{
+            background-color: green;
+        }
+        #underlined{
+            text-decoration: underline;
+        }
+        #emphasis{
+            font-style: italic;
+        }
+        #smallText{
+            font-size: 8pt;
+        }
+        #giantText{
+            font-size: xx-large;
+        }
+        #dirtyBlonde{
+            color: darkgoldenrod;
+        }
+        .codeup{
+            border: 1px solid red;
         }
     </style>
 </head>
 <body>
-<h1>Happy New Year!</h1>
-<h3>New Year Resolution!</h3>
-<ul id="resolutions">
-    <li class="third">Lose weight</li>
-    <li class="important">Get an awesome career started!</li>
-    <li class="second">Spend more time with my family</li>
-    <li class="fifth">Get organized</li>
-    <li class="forth">Take my dogs on more walks</li>
-</ul>
-<form name="resForm" action="">
-    <div>
-        <label for="goal">What do you want to do this year?</label>
-        <input id="goal" name="goal" type="text">
-    </div>
-</form>
-<button id="button" class="cyan">Click Me!</button>
+<!--<h1>Happy New Year!</h1>-->
+<!--<h3>New Year Resolution!</h3>-->
+<!--<ul id="resolutions">-->
+<!--    <li class="third">Lose weight</li>-->
+<!--    <li class="important">Get an awesome career started!</li>-->
+<!--    <li class="second">Spend more time with my family</li>-->
+<!--    <li class="fifth">Get organized</li>-->
+<!--    <li class="forth">Take my dogs on more walks</li>-->
+<!--</ul>-->
+<!--<form name="resForm" action="">-->
+<!--    <div>-->
+<!--        <label for="goal">What do you want to do this year?</label>-->
+<!--        <input id="goal" name="goal" type="text">-->
+<!--    </div>-->
+<!--</form>-->
+<!--<button id="button" class="cyan">Click Me!</button>-->
 
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<!--<script>-->
+<!--    (function (){-->
+<!--        "use strict";-->
+<!--        $(document).ready(function(){-->
+<!--            // our jQuery code goes here-->
+<!--            // alert("Look, we are using jQuery!");-->
+<!--            // document.getElementById("button").addEventListener("click", function(){-->
+<!--            //     alert("You clicked the button.");-->
+<!--            // });-->
+
+<!--            $("#button").click(function(){-->
+<!--                alert("You clicked the button")-->
+<!--            });-->
+
+<!--             var listItems = document.getElementsByTagName("li");-->
+<!--            //-->
+<!--            // for(var i = 0; i<listItems.length;i++){-->
+<!--            //     listItems[i].setAttribute("class","purple");-->
+<!--            // }-->
+
+<!--            // $("li").addClass("purple");-->
+<!--            $(".important").addClass("purple");-->
+<!--            $(".second").addClass("orange");-->
+<!--            $(".third").addClass("red");-->
+<!--            $(".forth").addClass("yellow");-->
+<!--            $(".fifth").addClass("blue");-->
+<!--        })-->
+<!--    })();-->
+<!--</script>-->
+
+<h1 id="giantText" class="codeup">Dylan is a butt</h1>
+<p id="yellow">He is my bestest friend in the entire world though. I love his:</p>
+<ul>
+    <li id="green">Eyes</li>
+    <li id="dirtyBlonde">Hair</li>
+    <li id="underlined" class="codeup">Personality</li>
+    <li id="emphasis">Humor</li>
+    <li id="blue" class="codeup">Intelligence</li>
+</ul>
+<div id="smallText">Hes just better than everyone else</div>
 <script>
-    (function (){
-        "use strict";
-        $(document).ready(function(){
-            // our jQuery code goes here
-            // alert("Look, we are using jQuery!");
-            // document.getElementById("button").addEventListener("click", function(){
-            //     alert("You clicked the button.");
-            // });
+    $("#yellow").addClass("yellow");
+    $("#blue").addClass("blue");
+    $("#underlined").addClass("underlined");
+    $("#emphasis").addClass("emphasis");
+    $("#green").addClass("green");
+    $("#smallText").addClass("smallText");
+    $("#giantText").addClass("giantText");
+    $("#dirtyBlonde").addClass("dirtyBlonde");
 
-            $("#button").click(function(){
-                alert("You clicked the button")
-            });
+    var blueText = document.getElementById("blue");
+    console.log(blueText);
 
-            // var listItems = document.getElementsByTagName("li");
-            //
-            // for(var i = 0; i<listItems.length;i++){
-            //     listItems[i].setAttribute("class","purple");
-            // }
+    $('li').css('font-size', '20px');
 
-            // $("li").addClass("purple");
-            $(".important").addClass("purple");
-            $(".second").addClass("orange");
-            $(".third").addClass("red");
-            $(".forth").addClass("yellow");
-            $(".fifth").addClass("blue");
-        })
-    })();
+    $('li, p, h1').css('background-color', 'yellow');
+
+    var h1Text = document.getElementsByTagName("h1");
+    console.log(h1Text);
 </script>
 </body>
 </html>
