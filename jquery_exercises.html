@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Exercises</title>
+    <style>
+        .purple{
+            background-color: purple;
+        }
+        .cyan{
+            color: cyan;
+        }
+        .orange{
+            background-color: orange;
+        }
+        .blue{
+            background-color: blue;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+        .red{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<h1>Happy New Year!</h1>
+<h3>New Year Resolution!</h3>
+<ul id="resolutions">
+    <li class="third">Lose weight</li>
+    <li class="important">Get an awesome career started!</li>
+    <li class="second">Spend more time with my family</li>
+    <li class="fifth">Get organized</li>
+    <li class="forth">Take my dogs on more walks</li>
+</ul>
+<form name="resForm" action="">
+    <div>
+        <label for="goal">What do you want to do this year?</label>
+        <input id="goal" name="goal" type="text">
+    </div>
+</form>
+<button id="button" class="cyan">Click Me!</button>
+
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script>
+    (function (){
+        "use strict";
+        $(document).ready(function(){
+            // our jQuery code goes here
+            // alert("Look, we are using jQuery!");
+            // document.getElementById("button").addEventListener("click", function(){
+            //     alert("You clicked the button.");
+            // });
+
+            $("#button").click(function(){
+                alert("You clicked the button")
+            });
+
+            // var listItems = document.getElementsByTagName("li");
+            //
+            // for(var i = 0; i<listItems.length;i++){
+            //     listItems[i].setAttribute("class","purple");
+            // }
+
+            // $("li").addClass("purple");
+            $(".important").addClass("purple");
+            $(".second").addClass("orange");
+            $(".third").addClass("red");
+            $(".forth").addClass("yellow");
+            $(".fifth").addClass("blue");
+        })
+    })();
+</script>
+</body>
+</html>
