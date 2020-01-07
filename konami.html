@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+<h1>Konami Code</h1>
+<div class="myDiv">
+    <img src="img/heart-png-hd-transparent-background-png-small-medium-large-600.png" height="15" width="15">
+    <img src="img/heart-png-hd-transparent-background-png-small-medium-large-600.png" height="15" width="15">
+    <img src="img/heart-png-hd-transparent-background-png-small-medium-large-600.png" height="15" width="15">
+</div>
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+
+    $(document).keyup(function(event){
+        console.log(event.keyCode);
+    });
+
+    var allowedKeys = {
+        37: 'left',
+        38: 'up',
+        39: 'right',
+        40: 'down',
+        65: 'a',
+        66: 'b',
+        13: 'enter'
+    };
+
+    var konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a', 'enter'];
+
+    var konamiCodePosition = 0;
+
+    document.addEventListener('keydown', function(e) {
+        var key = allowedKeys[e.keyCode];
+        var requiredKey = konamiCode[konamiCodePosition];
+
+        if (key == requiredKey) {
+            konamiCodePosition++;
+            if (konamiCodePosition == konamiCode.length) {
+                extraCredit();
+                konamiCodePosition = 0;
+            }
+        } else {
+            konamiCodePosition = 0;
+        }
+    });
+
+    function extraCredit() {
+        document.body.style.backgroundImage = "url('img/m_img_27895.jpg')";
+        document.body.style.backgroundSize = '100%';
+
+        var img = $('<img />', {
+            id: 'Myid3',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img2 = $('<img />', {
+            id: 'Myid4',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img3 = $('<img />', {
+            id: 'Myid5',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img4 = $('<img />', {
+            id: 'Myid6',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img5 = $('<img />', {
+            id: 'Myid7',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img6 = $('<img />', {
+            id: 'Myid8',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img7 = $('<img />', {
+            id: 'Myid9',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img8 = $('<img />', {
+            id: 'Myid10',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img9 = $('<img />', {
+            id: 'Myid11',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img10 = $('<img />', {
+            id: 'Myid12',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img11 = $('<img />', {
+            id: 'Myid13',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img12 = $('<img />', {
+            id: 'Myid14',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img13 = $('<img />', {
+            id: 'Myid15',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img14 = $('<img />', {
+            id: 'Myid16',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img15 = $('<img />', {
+            id: 'Myid17',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img16 = $('<img />', {
+            id: 'Myid18',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img17 = $('<img />', {
+            id: 'Myid19',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img18 = $('<img />', {
+            id: 'Myid20',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img19 = $('<img />', {
+            id: 'Myid21',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img20 = $('<img />', {
+            id: 'Myid22',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img21 = $('<img />', {
+            id: 'Myid23',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img22 = $('<img />', {
+            id: 'Myid24',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img23 = $('<img />', {
+            id: 'Myid25',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img24 = $('<img />', {
+            id: 'Myid26',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img25 = $('<img />', {
+            id: 'Myid27',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img26 = $('<img />', {
+            id: 'Myid28',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+        var img27 = $('<img />', {
+            id: 'Myid29',
+            src: 'img/heart-png-hd-transparent-background-png-small-medium-large-600.png',
+            height: 15,
+            width: 15,
+            alt: 'MyAlt'
+        });
+
+        img.appendTo($('.myDiv'));
+        img2.appendTo($('.myDiv'));
+        img3.appendTo($('.myDiv'));
+        img4.appendTo($('.myDiv'));
+        img5.appendTo($('.myDiv'));
+        img6.appendTo($('.myDiv'));
+        img7.appendTo($('.myDiv'));
+        img8.appendTo($('.myDiv'));
+        img9.appendTo($('.myDiv'));
+        img10.appendTo($('.myDiv'));
+        img11.appendTo($('.myDiv'));
+        img12.appendTo($('.myDiv'));
+        img13.appendTo($('.myDiv'));
+        img14.appendTo($('.myDiv'));
+        img15.appendTo($('.myDiv'));
+        img16.appendTo($('.myDiv'));
+        img17.appendTo($('.myDiv'));
+        img18.appendTo($('.myDiv'));
+        img19.appendTo($('.myDiv'));
+        img20.appendTo($('.myDiv'));
+        img21.appendTo($('.myDiv'));
+        img22.appendTo($('.myDiv'));
+        img23.appendTo($('.myDiv'));
+        img24.appendTo($('.myDiv'));
+        img25.appendTo($('.myDiv'));
+        img26.appendTo($('.myDiv'));
+        img27.appendTo($('.myDiv'));
+        img28.appendTo($('.myDiv'));
+
+
+        var audio = new Audio('audio/Still alive Radio loop copy.mp3');
+        audio.play();
+
+        alert("You have added 30 lives!");
+    }
+
+</script>
+</body>
+</html>

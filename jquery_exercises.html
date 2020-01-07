@@ -4,23 +4,11 @@
     <meta charset="UTF-8">
     <title>jQuery Exercises</title>
     <style>
-        /*.purple{*/
-        /*    background-color: purple;*/
-        /*}*/
-        /*.cyan{*/
-        /*    color: cyan;*/
-        /*}*/
-        /*.orange{*/
-        /*    background-color: orange;*/
-        /*}*/
         /*#blue{*/
         /*    background-color: blue;*/
         /*}*/
         /*#yellow{*/
         /*    background-color: yellow;*/
-        /*}*/
-        /*.red{*/
-        /*    background-color: red;*/
         /*}*/
         /*#green{*/
         /*    background-color: green;*/
@@ -46,54 +34,6 @@
     </style>
 </head>
 <body>
-<!--<h1>Happy New Year!</h1>-->
-<!--<h3>New Year Resolution!</h3>-->
-<!--<ul id="resolutions">-->
-<!--    <li class="third">Lose weight</li>-->
-<!--    <li class="important">Get an awesome career started!</li>-->
-<!--    <li class="second">Spend more time with my family</li>-->
-<!--    <li class="fifth">Get organized</li>-->
-<!--    <li class="forth">Take my dogs on more walks</li>-->
-<!--</ul>-->
-<!--<form name="resForm" action="">-->
-<!--    <div>-->
-<!--        <label for="goal">What do you want to do this year?</label>-->
-<!--        <input id="goal" name="goal" type="text">-->
-<!--    </div>-->
-<!--</form>-->
-<!--<button id="button" class="cyan">Click Me!</button>-->
-
-<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
-<!--<script>-->
-<!--    (function (){-->
-<!--        "use strict";-->
-<!--        $(document).ready(function(){-->
-<!--            // our jQuery code goes here-->
-<!--            // alert("Look, we are using jQuery!");-->
-<!--            // document.getElementById("button").addEventListener("click", function(){-->
-<!--            //     alert("You clicked the button.");-->
-<!--            // });-->
-
-<!--            $("#button").click(function(){-->
-<!--                alert("You clicked the button")-->
-<!--            });-->
-
-<!--             var listItems = document.getElementsByTagName("li");-->
-<!--            //-->
-<!--            // for(var i = 0; i<listItems.length;i++){-->
-<!--            //     listItems[i].setAttribute("class","purple");-->
-<!--            // }-->
-
-<!--            // $("li").addClass("purple");-->
-<!--            $(".important").addClass("purple");-->
-<!--            $(".second").addClass("orange");-->
-<!--            $(".third").addClass("red");-->
-<!--            $(".forth").addClass("yellow");-->
-<!--            $(".fifth").addClass("blue");-->
-<!--        })-->
-<!--    })();-->
-<!--</script>-->
-
 <h1 id="giantText" class="codeup">Dylan is a butt</h1>
 <p id="yellow">He is my bestest friend in the entire world though. I love his:</p>
 <ul>
@@ -104,42 +44,50 @@
     <li id="blue" class="codeup">Intelligence</li>
 </ul>
 <div id="smallText">Hes just better than everyone else</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <script>
-    // $("#yellow").addClass("yellow");
-    // $("#blue").addClass("blue");
-    // $("#underlined").addClass("underlined");
-    // $("#emphasis").addClass("emphasis");
-    // $("#green").addClass("green");
-    // $("#smallText").addClass("smallText");
-    // $("#giantText").addClass("giantText");
-    // $("#dirtyBlonde").addClass("dirtyBlonde");
-    //
-    // var blueText = document.getElementById("blue");
-    // console.log(blueText);
-    //
-    // $('li').css('font-size', '20px');
-    //
-    // $('li, p, h1').css('background-color', 'yellow');
-    //
-    // var h1Text = document.getElementsByTagName("h1");
-    // console.log(h1Text);
+    (function (){
+        "use strict";
+        $(document).ready(function() {
+            // $(".codeup").css("border", "1px solid red");
+            // $("li").css("font-size", "20px");
+            // $("h1,p,.codeup").addClass("yellow");
+            // alert($("h1").html());
+            // $(".codeup").addClass("green").hover(function(){
+            //     console.log("Hover over");
+            // },function(){
+            //     console.log("Hover out");
+            // });
 
-    $('h1').click(function() {
-        $(this).css('background-color', '#FFAA00')
-    });
+            $('h1').click(function() {
+                $(this).css('background-color', '#FFAA00')
+            });
 
-    $('p').dblclick(function(e) {
-        $(this).css('font-size', '18px')
-    });
+            $('p').dblclick(function(e) {
+                $(this).css('font-size', '18px')
+            });
 
-    $('li').hover(
-        function() {
-            $(this).css('color', '#FF0000');
-        },
-        function() {
-            $(this).css('color', '#000000');
-        }
-    );
+            // $('li').hover(
+            //     function() {
+            //         $('li').css('color', '#FF0000');
+            //     },
+            //     function() {
+            //         $('li').css('color', '#000000');
+            //     }
+            // );
+
+            $('li')
+                .mouseenter(function(){
+                    $('li').css('color', 'blue');
+                })
+                .mouseout(function(){
+                    $('li').css('color', 'black');
+            })
+        });
+})();
 </script>
+
+
 </body>
 </html>
