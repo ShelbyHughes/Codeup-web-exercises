@@ -7,9 +7,29 @@
        .invisible{
            visibility: hidden;
        }
+        .request{
+            display: none;
+        }
     </style>
 </head>
 <body>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<div class="alert alert-success" role="alert">
+    <h1>Would you like to sign up for our newsletter?</h1>
+    <span>X</span>
+</div>
+<div class="request">
+<h2>Do you want to register for this site?</h2>
+</div>
+
 <dl id="questions">
     <dt>Can I host a birthday party at the Community Center?</dt>
     <dd>Yes.</dd>
@@ -91,6 +111,20 @@
         $('li').click(function(){
             $(this).parent().children().first().css("color", "blue");
         });
+
+        $('span').click(function(){
+            $(this).parent().hide();
+        });
+
+        $('ul').hide();
+
+        $('h3').click(function(){
+            $(this).next().slideToggle();
+        })
+
+    $(document).ready(function() {
+        $(".request").delay(8000).fadeIn(500);
+    });
 
 </script>
 </body>
