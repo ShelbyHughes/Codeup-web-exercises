@@ -36,28 +36,28 @@
 </dl>
 <button id="styler">Click to change some things!</button>
 
-<h3 id="austin">Stephen F Austin State Park</h3>
-<ul id="stephen">
-    <li class="f">Located at Park Rd. 38 San Felipe, Texas 77473</li>
-    <li class="f">Latitude: 29.811982, longitude: -96.108059</li>
-    <li class="f">January average low is 43 degrees </li>
-    <li class="f">July average high is 94 degrees </li>
+<h3>Stephen F Austin State Park</h3>
+<ul>
+    <li>Located at Park Rd. 38 San Felipe, Texas 77473</li>
+    <li>Latitude: 29.811982, longitude: -96.108059</li>
+    <li>January average low is 43 degrees </li>
+    <li>July average high is 94 degrees </li>
 </ul>
 
-<h3 id="island">Mustang Island State Park</h3>
-<ul id="mustang">
-    <li class="state">Located at 9394 State Highway 361 Corpus Christi, Texas 78418</li>
-    <li class="state">Latitude: 27.672162, longitude: -97.175309</li>
-    <li class="state">January average low is 46 degrees</li>
-    <li class="state">July average high is 94 degrees</li>
+<h3>Mustang Island State Park</h3>
+<ul>
+    <li>Located at 9394 State Highway 361 Corpus Christi, Texas 78418</li>
+    <li>Latitude: 27.672162, longitude: -97.175309</li>
+    <li>January average low is 46 degrees</li>
+    <li>July average high is 94 degrees</li>
 </ul>
 
-<h3 id="state">Big Bend Ranch State Park</h3>
-<ul id="bigBend">
-    <li class="park">Located at 1900 Sauceda Ranch Road Marfa, Texas 79845</li>
-    <li class="park">Latitude: 29.470458, Longitude: -103.957922</li>
-    <li class="park">Balmorhea State Park is located inside the park</li>
-    <li class="park">Balmorhea is the largest spring-fed swimming pool</li>
+<h3>Big Bend Ranch State Park</h3>
+<ul>
+    <li>Located at 1900 Sauceda Ranch Road Marfa, Texas 79845</li>
+    <li>Latitude: 29.470458, Longitude: -103.957922</li>
+    <li>Balmorhea State Park is located inside the park</li>
+    <li>Balmorhea is the largest spring-fed swimming pool</li>
 </ul>
 
 <button id="highlighter">Click Me!</button>
@@ -77,36 +77,21 @@
             $(this).css('background-color', 'yellow');
         });
 
-        $('#highlighter').click(function(e){
-            $('.state').last().css('background-color', 'yellow');
+        $('#highlighter').click(function(){
+            $("ul").each(function(){
+                $(this).children().last().css("background-color", "yellow");
+            })
         });
-        $('#highlighter').click(function(e){
-            $('.f').last().css('background-color', 'yellow');
-        });
-        $('#highlighter').click(function(e){
-            $('.park').last().css('background-color', 'yellow');
+
+        $('h3').click(function(){
+            $(this).next().children().css('font-weight', 'bold');
         });
 
 
-        $('#austin').click(function() {
-            $('#stephen').children().css('font-weight', 'bold');
-        });
-        $('#island').click(function() {
-            $('#mustang').children().css('font-weight', 'bold');
-        });
-        $('#state').click(function() {
-            $('#bigBend').children().css('font-weight', 'bold');
+        $('li').click(function(){
+            $(this).parent().children().first().css("color", "blue");
         });
 
-        $('.state').click(function() {
-            $('#mustang li').first().css('color', 'blue');
-        });
-        $('.f').click(function() {
-            $('#stephen li').first().css('color', 'blue');
-        });
-        $('.park').click(function() {
-            $('#bigBend li').first().css('color', 'blue');
-        });
 </script>
 </body>
 </html>
