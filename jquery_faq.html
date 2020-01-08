@@ -3,8 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+       .invisible{
+           visibility: hidden;
+       }
+    </style>
 </head>
 <body>
+<dl id="questions">
+    <dt>Can I host a birthday party at the Community Center?</dt>
+    <dd>Yes.</dd>
+    <dt>Can I pay my Community Center membership upfront for a year?</dt>
+    <dd>Yes, you can pay for a full year in advance. You will receive a 10% discount on your membership. If you decide to cancel before the 12 month period is over, you will receive back a prorated figure from the non discounted annual fee.</dd>
+    <dt>Can I rent a meeting room at the Community Center?</dt>
+    <dd>Yes. There are a variety of rooms available for rent at the Community Center.</dd>
+    <dt>Can I suspend my membership if I go away for the winter?</dt>
+    <dd>You may suspend your membership for 4 months in a 12-month period. If you suspend your membership you will only be charged an $8 monthly suspension fee to maintain your membership. We must receive your suspension request by the 20th of the month to begin the suspension for the next month.</dd>
+    <dt>Do I have to be an Eden Prairie resident to use the Community Center or become a member?</dt>
+    <dd>No. Non-residents are allowed to become Community Center members and can use the facility.</dd>
+    <dt>Does the Community Center offer insurance reimbursement programs?</dt>
+    <dd>Yes. The Community Center offers these programs for qualified members of BCBS of Minnesota, HealthPartners, Medica, Ucare and Preferred One. If you want to verify your eligibility, please contact your insurance carrier.</dd>
+    <dt>How can I pay for my Community Center membership?</dt>
+    <dd>For the automatic withdrawal system we accept MasterCard, Visa and Discover, in addition to a checking account or savings account. In the event that you want to use a checking or savings account we ask that you provide us with a copy of a check or savings account deposit slip with the account number on it.</dd>
+    <dt>Is there an extra fee to add someone to my membership?</dt>
+    <dd>A $10 administrative fee will be assessed if you add someone (upgrade) or take someone off of your membership (downgrade). Upgrades may happen at any time during the month. Downgrades follow the same guidelines as cancellations. The administrative fee and the difference in pro rated dues will apply and will be collected at the time of upgrade request.</dd>
+    <dt>When becoming a Community Center member, am i required to sign an agreement?</dt>
+    <dd>Yes, but it is not locking you into maintaining a membership for extended periods of time. This is a month to month payment plan, with no commitment as to length of time over 60 days. The agreement represents you agreeing that we will receive payment and that you understand the policies and procedures related to the membership and our facility.</dd>
+    <dt>Where can I find an item that I lost in an Eden Prairie City park or at the Eden Prairie Community Center?</dt>
+    <dd>If you have left or lost something in one of our parks, park buildings or shelters please contact the Community Center at 952-949-8470.
 
+        Items found in City parks or at the Community Center will be kept at the Community Center for 90 days. After 90 days, keys, wallets, phones, laptops or other electronic devices, sports equipment, jewelry  and any other items that appear valuable will be sent to the Police Department. All other items will be donated to the PROP Shop in Eden Prairie.</dd>
+</dl>
+<button id="styler">Click to change some things!</button>
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+
+        $('dd').addClass('invisible');
+
+        $('#styler').click(function(e){
+            e.preventDefault();
+            $("dd").toggleClass("invisible")
+        });
+
+        $('dt').click(function(){
+            $(this).css('background-color', 'yellow');
+        })
+</script>
 </body>
 </html>

@@ -5,6 +5,7 @@
     <title>Morning</title>
 </head>
 <body>
+<button type="button" onclick="myFunction()">Change Color</button>
 <script>
     // 11/8/19
     // function helloWorld() {
@@ -306,6 +307,7 @@
 
     // console.log(getGoldReindeer(reindeerList));
 
+    // 1-06-20
     function fizzBuzz(num){
         for(var i=1; i<=num; i++) {
             if (num % 15 === 0) {
@@ -320,6 +322,19 @@
         }
     }
 
+    //1-08-20
+
+    // Create a page with a clickable element that, when clicked, changes the background color to a randomly selected color. You can use jquery but you don’t have to
+
+    $('#box').css({
+        "height" : "300px",
+        "width" : "300px",
+        "background" : "firebrick",
+        "border-radius" : "20%"
+    })
+        .click(function(){
+            var randomIndex
+        })
 </script>
 </body>
 </html>
