@@ -7,9 +7,6 @@
        .invisible{
            visibility: hidden;
        }
-        .request{
-            display: none;
-        }
     </style>
 </head>
 <body>
@@ -122,9 +119,8 @@
             $(this).next().slideToggle();
         })
 
-    $(document).ready(function() {
-        $(".request").delay(8000).fadeIn(500);
-    });
+
+        $(".request").hide().delay(8000).fadeIn(500);
 
 </script>
 </body>

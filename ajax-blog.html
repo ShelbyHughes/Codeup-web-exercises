@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id="products">
+    <thread>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Categories</th>
+        <th>Date</th>
+    </thread>
+    <tbody id="posts"></tbody>
+</table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+    (function() {
+        "use strict";
+        // TODO: Create an ajax GET request for /data/inventory.json
+        $(document).ready(function () {
+            function loadTable() {
+                $.get('data/blog.json').done(function (entry) {
+                    for (var i = 0; i < entry.length; i++) {
+                        $('#posts').append(tableData(i));
+                    }
+                    function tableData(i) {
+                        return '<tr>' +
+                            '<td>' + entry[i].title + '</td>' +
+                            '<td>' + entry[i].content + '</td>' +
+                            '<td>' + entry[i].categories + '</td>' +
+                            '<td>' + entry[i].date + '</td>' +
+                            '</tr>'
+
+                    }
+                });
+            }
+            loadTable();
+            $('#refresh').click(function () {
+                $('#insertProducts').html(' ');
+                loadTable();
+            })
+        });
+    })();
+</script>
+</body>
+</html>
