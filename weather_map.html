@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dark Sky Project</title>
+    <style>
+        .weatherCards{
+            background-color: lightgrey;
+            border: 1px solid grey;
+            text-align: center;
+        }
+        .mainBackground{
+            background-color: skyblue;
+        }
+        body {
+            display: grid;
+            grid-template-areas:
+                    "header header header"
+                    "header2 header2 header2"
+                    "current_weather tomorrows_weather day_after";
+            grid-template-rows: 60px 60px 360px;
+            grid-template-columns: 33% 33% 33%;
+            grid-row-gap: 10px;
+            grid-column-gap: 10px;
+            height: 100vh;
+            margin: 10px;
+        }
+        #header{
+            grid-area: header;
+        }
+        #header2{
+            grid-area: header2;
+        }
+        #current_weather{
+            grid-area: current_weather;
+        }
+        #tomorrows_weather{
+            grid-area: tomorrows_weather;
+        }
+        #day_after{
+            grid-area: day_after;
+        }
+    </style>
+</head>
+<body class="mainBackground">
+<h1 id="header">Weather Application</h1>
+
+<h3 id="header2">San Antonio</h3>
+
+<div class="Today-weather weatherCards" id="current_weather"></div>
+<div class="Tomorrow-weather weatherCards" id="tomorrows_weather"></div>
+<div class="Next-weather weatherCards" id="day_after"></div>
+
+<script src="js/keys.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+
+    var iconArray = {
+        'clear-day':"icon/Sun.svg",
+    'clear-night':"icon/Moon.svg",
+        'rain': "icon/Cloud-Drizzle-Alt.svg",
+        'snow': "icon/Cloud-Snow-Alt.svg",
+        'sleet': "icon/Cloud-Hail-Alt.svg",
+        'wind': "icon/Cloud-Wind.svg",
+        'fog': "icon/Cloud-Fog-Alt.svg",
+        'cloudy': "icon/Cloud.svg",
+        'partly-cloudy-day':"icon/Cloud-Wind-Sun.svg",
+        'partly-cloudy-night':"icon/Cloud-Wind-Moon.svg"
+    };
+
+//    var iconArray = [{
+//            name: "clear-day" ,
+//            image: "icon/Sun.svg"
+//        },
+//        {
+//            name: "clear-night",
+//            image: "icon/Moon.svg"
+//        },
+//        {
+//            name: "rain",
+//            image:"icon/Cloud-Drizzle-Alt.svg"
+//        },
+//        {
+//            name: "snow",
+//            image: "icon/Cloud-Snow-Alt.svg"
+//        },
+//        {
+//            name: "sleet",
+//            image: "icon/Cloud-Hail-Alt.svg"
+//        },
+//        {
+//            name: "wind",
+//            image: "icon/Cloud-Wind.svg"
+//        },
+//        {
+//            name: "fog",
+//            image: "icon/Cloud-Fog-Alt.svg"
+//        },
+//        {
+//            name: "cloudy",
+//            image: "icon/Cloud.svg"
+//        },
+//        {
+//            name: "partly-cloudy-day",
+//            image: "icon/Cloud-Wind-Sun.svg"
+//        },
+//        {
+//            name: "partly-cloudy-night" ,
+//            image: "icon/Cloud-Wind-Moon.svg"
+//        }];
+
+    (function() {
+        "use strict";
+        $(document).ready(function () {
+           var weather =  $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyToken + "/29.4241,-98.4936")
+            weather.done(function(weather){
+                console.log(weather)
+                for(var i=0; i <= 2; i++){
+
+                }
+            $('.Today-weather').append(
+                '<div class="d-flex-col justify-content-center">' +
+                '<h5 class="d-flex justify-content-center">' + "Current Weather " + '</h5>' +
+                '<img src="'+ iconArray[weather.currently.icon] +'" class="mt-2" style="width: 30%">' +
+                '<p class="d-flex justify-content-center mt-2">' + weather.currently.temperature + '° F' + '</p>' +
+                '<p class="d-flex justify-content-center mt-2">' + "The Sky is " + weather.currently.summary + '</p>' +
+                '<p class="d-flex justify-content-center mt-2">' + "Humidity: " + weather.currently.humidity + "%" + '</p>' +
+                '<p class="d-flex justify-content-center mt-2">' + "Wind: " + weather.currently.windSpeed + " MPH" + '</p>' +
+                '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.currently.pressure + '</p>' +
+                '</div>'
+            );
+            $('.Tomorrow-weather').append(
+                '<div class="d-flex-col justify-content-center">' +
+                '<h5 class="d-flex justify-content-center">' + "Tomorrow Weather " + '</h5>' +
+                '<img src="'+ iconArray[weather.daily.data[1].icon] +'" class="mt-2" style="width: 30%">' +
+                '<p class="d-flex justify-content-center mt-2">' + weather.daily.data[1].temperatureHigh + '° F' + ' / ' + weather.daily.data[1].temperatureLow + '° F' + '</p>' +
+                '<p class="d-flex justify-content-center mt-2">' + "The Sky is " + weather.daily.data[1].summary + '</p>' +
+                '<p class="d-flex justify-content-center mt-2">' + "Humidity: " + weather.daily.data[1].humidity + "%" + '</p>' +
+                '<p class="d-flex justify-content-center mt-2">' + "Wind: " + weather.daily.data[1].windSpeed + " MPH" + '</p>' +
+                '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.daily.data[1].pressure + '</p>' +
+                '</div>'
+            );
+            $('.Next-weather').append(
+                '<div class="d-flex-col justify-content-center">' +
+                '<h5 class="d-flex justify-content-center">' + "Next Day Weather " + '</h5>' +
+                '<img src="'+ iconArray[weather.daily.data[2].icon] +'" class="mt-2" style="width: 30%">' +
+                '<p class="d-flex justify-content-center mt-2">' + weather.daily.data[2].temperatureHigh + '° F' + ' / ' + weather.daily.data[2].temperatureLow + '° F' +'</p>' +
+                '<p class="d-flex justify-content-center mt-2">' + "The Sky is " + weather.daily.data[2].summary + '</p>' +
+                '<p class="d-flex justify-content-center mt-2">' + "Humidity: " + weather.daily.data[2].humidity + "%" + '</p>' +
+                '<p class="d-flex justify-content-center mt-2">' + "Wind: " + weather.daily.data[2].windSpeed + " MPH" + '</p>' +
+                '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.daily.data[2].pressure + '</p>' +
+                '</div>');
+            })
+         });
+    })();
+
+</script>
+</body>
+</html>
