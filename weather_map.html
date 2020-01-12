@@ -12,13 +12,21 @@
         .mainBackground{
             background-color: skyblue;
         }
+        #map{
+            width: 100%;
+            height: 700px;
+            grid-area: map;
+        }
         body {
             display: grid;
             grid-template-areas:
                     "header header header"
                     "header2 header2 header2"
-                    "current_weather tomorrows_weather day_after";
-            grid-template-rows: 60px 60px 360px;
+                    "current_weather tomorrows_weather day_after"
+                    "lat long long"
+                    "map map map"
+                    "map map map";
+            grid-template-rows: 60px 60px 480px;
             grid-template-columns: 33% 33% 33%;
             grid-row-gap: 10px;
             grid-column-gap: 10px;
@@ -40,6 +48,13 @@
         #day_after{
             grid-area: day_after;
         }
+        #lat{
+            grid-area: lat;
+        }
+        #long{
+            grid-area: long;
+        }
+
     </style>
 </head>
 <body class="mainBackground">
@@ -51,13 +66,25 @@
 <div class="Tomorrow-weather weatherCards" id="tomorrows_weather"></div>
 <div class="Next-weather weatherCards" id="day_after"></div>
 
+<form>
+    Latitude:<br>
+    <input type="text" name="latitude" placeholder="Enter Latitude Here" id="lat"><br>
+    Longitude:<br>
+    <input type="text" name="longitude" placeholder="Enter Longitude Here" id="long"><br>
+    <input type="submit" value="Submit" id="go-getter">
+</form>
+
+<br/>
+<div id="map"></div>
 <script src="js/keys.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
 <script>
-
+    // Array of icons
     var iconArray = {
         'clear-day':"icon/Sun.svg",
-    'clear-night':"icon/Moon.svg",
+        'clear-night':"icon/Moon.svg",
         'rain': "icon/Cloud-Drizzle-Alt.svg",
         'snow': "icon/Cloud-Snow-Alt.svg",
         'sleet': "icon/Cloud-Hail-Alt.svg",
@@ -67,57 +94,13 @@
         'partly-cloudy-day':"icon/Cloud-Wind-Sun.svg",
         'partly-cloudy-night':"icon/Cloud-Wind-Moon.svg"
     };
-
-//    var iconArray = [{
-//            name: "clear-day" ,
-//            image: "icon/Sun.svg"
-//        },
-//        {
-//            name: "clear-night",
-//            image: "icon/Moon.svg"
-//        },
-//        {
-//            name: "rain",
-//            image:"icon/Cloud-Drizzle-Alt.svg"
-//        },
-//        {
-//            name: "snow",
-//            image: "icon/Cloud-Snow-Alt.svg"
-//        },
-//        {
-//            name: "sleet",
-//            image: "icon/Cloud-Hail-Alt.svg"
-//        },
-//        {
-//            name: "wind",
-//            image: "icon/Cloud-Wind.svg"
-//        },
-//        {
-//            name: "fog",
-//            image: "icon/Cloud-Fog-Alt.svg"
-//        },
-//        {
-//            name: "cloudy",
-//            image: "icon/Cloud.svg"
-//        },
-//        {
-//            name: "partly-cloudy-day",
-//            image: "icon/Cloud-Wind-Sun.svg"
-//        },
-//        {
-//            name: "partly-cloudy-night" ,
-//            image: "icon/Cloud-Wind-Moon.svg"
-//        }];
-
-    (function() {
         "use strict";
         $(document).ready(function () {
+            // dark skys api call
            var weather =  $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyToken + "/29.4241,-98.4936")
             weather.done(function(weather){
-                console.log(weather)
-                for(var i=0; i <= 2; i++){
 
-                }
+                //Todays weather card
             $('.Today-weather').append(
                 '<div class="d-flex-col justify-content-center">' +
                 '<h5 class="d-flex justify-content-center">' + "Current Weather " + '</h5>' +
@@ -129,6 +112,7 @@
                 '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.currently.pressure + '</p>' +
                 '</div>'
             );
+                //Tomorrows weather card
             $('.Tomorrow-weather').append(
                 '<div class="d-flex-col justify-content-center">' +
                 '<h5 class="d-flex justify-content-center">' + "Tomorrow Weather " + '</h5>' +
@@ -140,6 +124,7 @@
                 '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.daily.data[1].pressure + '</p>' +
                 '</div>'
             );
+            //Next Day weather card
             $('.Next-weather').append(
                 '<div class="d-flex-col justify-content-center">' +
                 '<h5 class="d-flex justify-content-center">' + "Next Day Weather " + '</h5>' +
@@ -150,9 +135,27 @@
                 '<p class="d-flex justify-content-center mt-2">' + "Wind: " + weather.daily.data[2].windSpeed + " MPH" + '</p>' +
                 '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.daily.data[2].pressure + '</p>' +
                 '</div>');
+
+            });
+            mapboxgl.accessToken = mapboxToken;
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v9',
+                zoom: 10,
+                center: [-98.53492, 29.55742]
+            });
+            $('go-getter').click(function(){
+                alert('hi')
+                geocode(prompt("Address, please"), mapboxToken).then(function (result) {
+                    map.setCenter(result)
+                    map.setZoom(15)
+                    var marker = new mapboxgl.Marker()
+                        .setLngLat(result)
+                        .addTo(map);
+                });
             })
          });
-    })();
+
 
 </script>
 </body>
