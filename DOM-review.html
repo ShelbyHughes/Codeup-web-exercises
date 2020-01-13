@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Review</title>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<div class="container">
+    <div id="main">
+        <input type="text" id="input">
+        <button id="add-to-list" onclick="addFood()">Add to List</button>
+
+        <h4>Favorite Food:</h4>
+        <ul id="favorite-food">
+            <li id="one" onclick="liHighlight()">Ramen</li>
+            <li>Sushi</li>
+            <li>Curry</li>
+        </ul>
+
+        <h4 id="change-me" ondblclick="changeBackground()">Change Me</h4>
+
+        <h4>My Cohort: <span id="my-cohort"></span></h4>
+        <input type="text" id="cohort-name">
+        <button id="change-cohort">Update</button>
+
+        <br>
+        <button id="highlight" onclick="highlight()">Highlight</button>
+    </div>
+</div>
+<script>
+    // Allow the user to type in their favorite food into the input and append it to the list once the button is clicked
+
+    function addFood() {
+        let liLast = document.createElement('li');
+        liLast.innerHTML = input.value;
+        document.getElementById("favorite-food").append(liLast);
+    }
+
+    // When the heading 'Change Me' is double clicked, change its background-color to purple
+
+    function changeBackground(){
+        document.body.style.backgroundColor="purple";
+    }
+
+    // Allow the user to input their cohort name. Once Update button is clicked, the text should should update with the name of the cohort.
+
+        var button1  = document.getElementById("change-cohort");
+        button1.addEventListener("click", function() {
+            var mainHeader = document.getElementById("my-cohort");
+            mainHeader.innerHTML = document.getElementById("cohort-name").value;
+            document.getElementById('cohort-name').value = '';
+        });
+
+    // When 'Highlight' button is clicked, change the background color of the cohort name to yellow.
+
+    function highlight(){
+        let span = document.getElementById("my-cohort");
+        span.style.backgroundColor = "yellow";
+    }
+
+    // Write some JavaScript that changes the background-color of the container to pink after 3 seconds.
+
+        myVar = setTimeout(function(){
+            document.body.style.backgroundColor = "pink"
+        }, 3000);
+
+    // Highlight li
+
+    function liHighlight(){
+        let li = document.getElementById("one")
+        li.style.backgroundColor="orange";
+    }
+</script>
+</body>
+</html>
