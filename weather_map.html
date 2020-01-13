@@ -191,14 +191,15 @@
             });
             $('#go-getter').click(function(e){
                 e.preventDefault();
-                alert("hi");
-                // geocode(prompt("Address, please"), mapboxToken).then(function (result) {
-                //     map.setCenter(result)
-                //     map.setZoom(15)
-                //     var marker = new mapboxgl.Marker()
-                //         .setLngLat(result)
-                //         .addTo(map);
-                // });
+                console.log({lng:long.value, lat:lat.value})
+                reverseGeocode({lng:long.value, lat:lat.value}, mapboxToken).then(function (result) {
+                    console.log(result);
+                    map.setCenter(result)
+                    map.setZoom(15)
+                    var marker = new mapboxgl.Marker()
+                        .setLngLat(result)
+                        .addTo(map);
+                });
                 getWeather(lat.value,long.value);
             })
          });
