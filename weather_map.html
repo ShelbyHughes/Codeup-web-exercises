@@ -59,9 +59,9 @@
 </head>
 <body class="mainBackground">
 <h1 id="header">Weather Application</h1>
-
-<h3 id="header2">San Antonio</h3>
-
+<div id="header2">
+    <h3 id="location">San Antonio</h3>
+</div>
 <div class="Today-weather weatherCards" id="current_weather"></div>
 <div class="Tomorrow-weather weatherCards" id="tomorrows_weather"></div>
 <div class="Next-weather weatherCards" id="day_after"></div>
@@ -96,47 +96,92 @@
     };
         "use strict";
         $(document).ready(function () {
+            getWeather(29.4241, -98.4936);
             // dark skys api call
-           var weather =  $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyToken + "/29.4241,-98.4936")
-            weather.done(function(weather){
+           // var weather =  $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyToken + "/29.4241,-98.4936")
+           //  weather.done(function(weather){
+           //
+           //      //Todays weather card
+           //  $('.Today-weather').append(
+           //      '<div class="d-flex-col justify-content-center">' +
+           //      '<h5 class="d-flex justify-content-center">' + "Todays Weather " + '</h5>' +
+           //      '<img src="'+ iconArray[weather.daily.data[0].icon] +'" class="mt-2" style="width: 30%">' +
+           //      '<p class="d-flex justify-content-center mt-2">' + weather.daily.data[0].temperatureHigh + '° F' + ' / ' + weather.daily.data[0].temperatureLow + '° F' + '</p>' +
+           //      '<p class="d-flex justify-content-center mt-2">' + "The Sky is " + weather.daily.data[0].summary + '</p>' +
+           //      '<p class="d-flex justify-content-center mt-2">' + "Humidity: " + weather.daily.data[0].humidity + "%" + '</p>' +
+           //      '<p class="d-flex justify-content-center mt-2">' + "Wind: " + weather.daily.data[0].windSpeed + " MPH" + '</p>' +
+           //      '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.daily.data[0].pressure + '</p>' +
+           //      '</div>'
+           //  );
+           //      //Tomorrows weather card
+           //  $('.Tomorrow-weather').append(
+           //      '<div class="d-flex-col justify-content-center">' +
+           //      '<h5 class="d-flex justify-content-center">' + "Tomorrow Weather " + '</h5>' +
+           //      '<img src="'+ iconArray[weather.daily.data[1].icon] +'" class="mt-2" style="width: 30%">' +
+           //      '<p class="d-flex justify-content-center mt-2">' + weather.daily.data[1].temperatureHigh + '° F' + ' / ' + weather.daily.data[1].temperatureLow + '° F' + '</p>' +
+           //      '<p class="d-flex justify-content-center mt-2">' + "The Sky is " + weather.daily.data[1].summary + '</p>' +
+           //      '<p class="d-flex justify-content-center mt-2">' + "Humidity: " + weather.daily.data[1].humidity + "%" + '</p>' +
+           //      '<p class="d-flex justify-content-center mt-2">' + "Wind: " + weather.daily.data[1].windSpeed + " MPH" + '</p>' +
+           //      '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.daily.data[1].pressure + '</p>' +
+           //      '</div>'
+           //  );
+           //  //Next Day weather card
+           //  $('.Next-weather').append(
+           //      '<div class="d-flex-col justify-content-center">' +
+           //      '<h5 class="d-flex justify-content-center">' + "Next Day Weather " + '</h5>' +
+           //      '<img src="'+ iconArray[weather.daily.data[2].icon] +'" class="mt-2" style="width: 30%">' +
+           //      '<p class="d-flex justify-content-center mt-2">' + weather.daily.data[2].temperatureHigh + '° F' + ' / ' + weather.daily.data[2].temperatureLow + '° F' +'</p>' +
+           //      '<p class="d-flex justify-content-center mt-2">' + "The Sky is " + weather.daily.data[2].summary + '</p>' +
+           //      '<p class="d-flex justify-content-center mt-2">' + "Humidity: " + weather.daily.data[2].humidity + "%" + '</p>' +
+           //      '<p class="d-flex justify-content-center mt-2">' + "Wind: " + weather.daily.data[2].windSpeed + " MPH" + '</p>' +
+           //      '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.daily.data[2].pressure + '</p>' +
+           //      '</div>');
+           //
+           //  });
+            function getWeather(latitude, longitude){
+                var weather =  $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyToken + "/" + latitude +',' + longitude);
+                weather.done(function(weather){
+                    console.log(weather);
 
-                //Todays weather card
-            $('.Today-weather').append(
-                '<div class="d-flex-col justify-content-center">' +
-                '<h5 class="d-flex justify-content-center">' + "Current Weather " + '</h5>' +
-                '<img src="'+ iconArray[weather.currently.icon] +'" class="mt-2" style="width: 30%">' +
-                '<p class="d-flex justify-content-center mt-2">' + weather.currently.temperature + '° F' + '</p>' +
-                '<p class="d-flex justify-content-center mt-2">' + "The Sky is " + weather.currently.summary + '</p>' +
-                '<p class="d-flex justify-content-center mt-2">' + "Humidity: " + weather.currently.humidity + "%" + '</p>' +
-                '<p class="d-flex justify-content-center mt-2">' + "Wind: " + weather.currently.windSpeed + " MPH" + '</p>' +
-                '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.currently.pressure + '</p>' +
-                '</div>'
-            );
-                //Tomorrows weather card
-            $('.Tomorrow-weather').append(
-                '<div class="d-flex-col justify-content-center">' +
-                '<h5 class="d-flex justify-content-center">' + "Tomorrow Weather " + '</h5>' +
-                '<img src="'+ iconArray[weather.daily.data[1].icon] +'" class="mt-2" style="width: 30%">' +
-                '<p class="d-flex justify-content-center mt-2">' + weather.daily.data[1].temperatureHigh + '° F' + ' / ' + weather.daily.data[1].temperatureLow + '° F' + '</p>' +
-                '<p class="d-flex justify-content-center mt-2">' + "The Sky is " + weather.daily.data[1].summary + '</p>' +
-                '<p class="d-flex justify-content-center mt-2">' + "Humidity: " + weather.daily.data[1].humidity + "%" + '</p>' +
-                '<p class="d-flex justify-content-center mt-2">' + "Wind: " + weather.daily.data[1].windSpeed + " MPH" + '</p>' +
-                '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.daily.data[1].pressure + '</p>' +
-                '</div>'
-            );
-            //Next Day weather card
-            $('.Next-weather').append(
-                '<div class="d-flex-col justify-content-center">' +
-                '<h5 class="d-flex justify-content-center">' + "Next Day Weather " + '</h5>' +
-                '<img src="'+ iconArray[weather.daily.data[2].icon] +'" class="mt-2" style="width: 30%">' +
-                '<p class="d-flex justify-content-center mt-2">' + weather.daily.data[2].temperatureHigh + '° F' + ' / ' + weather.daily.data[2].temperatureLow + '° F' +'</p>' +
-                '<p class="d-flex justify-content-center mt-2">' + "The Sky is " + weather.daily.data[2].summary + '</p>' +
-                '<p class="d-flex justify-content-center mt-2">' + "Humidity: " + weather.daily.data[2].humidity + "%" + '</p>' +
-                '<p class="d-flex justify-content-center mt-2">' + "Wind: " + weather.daily.data[2].windSpeed + " MPH" + '</p>' +
-                '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.daily.data[2].pressure + '</p>' +
-                '</div>');
+                    $("#location").html(latitude + ', ' + longitude);
+                    //Todays weather card
+                    $('.Today-weather').empty().append(
+                        '<div class="d-flex-col justify-content-center">' +
+                        '<h5 class="d-flex justify-content-center">' + "Todays Weather " + '</h5>' +
+                        '<img src="'+ iconArray[weather.daily.data[0].icon] +'" class="mt-2" style="width: 30%">' +
+                        '<p class="d-flex justify-content-center mt-2">' + weather.daily.data[0].temperatureHigh + '° F' + ' / ' + weather.daily.data[0].temperatureLow + '° F' + '</p>' +
+                        '<p class="d-flex justify-content-center mt-2">' + "The Sky is " + weather.daily.data[0].summary + '</p>' +
+                        '<p class="d-flex justify-content-center mt-2">' + "Humidity: " + weather.daily.data[0].humidity + "%" + '</p>' +
+                        '<p class="d-flex justify-content-center mt-2">' + "Wind: " + weather.daily.data[0].windSpeed + " MPH" + '</p>' +
+                        '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.daily.data[0].pressure + '</p>' +
+                        '</div>');
 
-            });
+                    //Tomorrows weather card
+                    $('.Tomorrow-weather').empty().append(
+                        '<div class="d-flex-col justify-content-center">' +
+                        '<h5 class="d-flex justify-content-center">' + "Tomorrow Weather " + '</h5>' +
+                        '<img src="'+ iconArray[weather.daily.data[1].icon] +'" class="mt-2" style="width: 30%">' +
+                        '<p class="d-flex justify-content-center mt-2">' + weather.daily.data[1].temperatureHigh + '° F' + ' / ' + weather.daily.data[1].temperatureLow + '° F' + '</p>' +
+                        '<p class="d-flex justify-content-center mt-2">' + "The Sky is " + weather.daily.data[1].summary + '</p>' +
+                        '<p class="d-flex justify-content-center mt-2">' + "Humidity: " + weather.daily.data[1].humidity + "%" + '</p>' +
+                        '<p class="d-flex justify-content-center mt-2">' + "Wind: " + weather.daily.data[1].windSpeed + " MPH" + '</p>' +
+                        '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.daily.data[1].pressure + '</p>' +
+                        '</div>');
+
+                    //Next Day weather card
+                    $('.Next-weather').empty().append(
+                        '<div class="d-flex-col justify-content-center">' +
+                        '<h5 class="d-flex justify-content-center">' + "Next Day Weather " + '</h5>' +
+                        '<img src="'+ iconArray[weather.daily.data[2].icon] +'" class="mt-2" style="width: 30%">' +
+                        '<p class="d-flex justify-content-center mt-2">' + weather.daily.data[2].temperatureHigh + '° F' + ' / ' + weather.daily.data[2].temperatureLow + '° F' +'</p>' +
+                        '<p class="d-flex justify-content-center mt-2">' + "The Sky is " + weather.daily.data[2].summary + '</p>' +
+                        '<p class="d-flex justify-content-center mt-2">' + "Humidity: " + weather.daily.data[2].humidity + "%" + '</p>' +
+                        '<p class="d-flex justify-content-center mt-2">' + "Wind: " + weather.daily.data[2].windSpeed + " MPH" + '</p>' +
+                        '<p class="d-flex justify-content-center mt-2">' + "Pressure: " + weather.daily.data[2].pressure + '</p>' +
+                        '</div>');
+
+                });
+            }
             mapboxgl.accessToken = mapboxToken;
             var map = new mapboxgl.Map({
                 container: 'map',
@@ -144,15 +189,17 @@
                 zoom: 10,
                 center: [-98.53492, 29.55742]
             });
-            $('go-getter').click(function(){
-                alert('hi')
-                geocode(prompt("Address, please"), mapboxToken).then(function (result) {
-                    map.setCenter(result)
-                    map.setZoom(15)
-                    var marker = new mapboxgl.Marker()
-                        .setLngLat(result)
-                        .addTo(map);
-                });
+            $('#go-getter').click(function(e){
+                e.preventDefault();
+                alert("hi");
+                // geocode(prompt("Address, please"), mapboxToken).then(function (result) {
+                //     map.setCenter(result)
+                //     map.setZoom(15)
+                //     var marker = new mapboxgl.Marker()
+                //         .setLngLat(result)
+                //         .addTo(map);
+                // });
+                getWeather(lat.value,long.value);
             })
          });
 
