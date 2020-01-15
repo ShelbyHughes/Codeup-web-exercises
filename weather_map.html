@@ -13,8 +13,8 @@
             background-color: skyblue;
         }
         #map{
-            width: 50%;
-            height: 350px;
+            width: 100%;
+            height: 480px;
             grid-area: map;
         }
         body {
@@ -23,13 +23,14 @@
                     "header header header"
                     "header2 header2 header2"
                     "current_weather tomorrows_weather day_after"
-                    "lat long long"
-                    "map map map"
-                    "map map map";
-            grid-template-rows: 60px 60px 480px;
+                    "form map map";
+            grid-template-rows: 60px 60px 480px 480px;
             grid-template-columns: 33% 33% 33%;
             grid-row-gap: 10px;
             grid-column-gap: 10px;
+        }
+        .form{
+            grid-area: form;
         }
         #header{
             grid-area: header;
@@ -45,12 +46,6 @@
         }
         #day_after{
             grid-area: day_after;
-        }
-        #lat{
-            grid-area: lat;
-        }
-        #long{
-            grid-area: long;
         }
 
     </style>
@@ -68,11 +63,11 @@
 
 <div class="Next-weather weatherCards" id="day_after"></div>
 
-<form>
+<form class="form">
     Latitude:<br>
     <input type="text" name="latitude" placeholder="Enter Latitude Here" id="lat"><br>
-    Longitude:<br>
-    <input type="text" name="longitude" placeholder="Enter Longitude Here" id="long"><br>
+    longitude:<br>
+    <input type="text" name="longitude" placeholder="Enter Longitude Here" id="long">
     <input type="submit" value="Submit" id="go-getter">
 </form>
 
@@ -99,7 +94,7 @@
     };
         "use strict";
         $(document).ready(function () {
-            getWeather(29.4241, -98.4936);
+            getWeather(29.4241, -98.4936)
             function getWeather(latitude, longitude){
                 var weather =  $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyToken + "/" + latitude +',' + longitude);
                 weather.done(function(weather){
@@ -108,10 +103,10 @@
                     //Todays weather card
                     $('.Today-weather').empty().append(
                         '<div>' +
-                        '<h5>' + "Todays Weather " + '</h5>' +
+                        '<h3>' + "Today's Forecast " + '</h3>' +
                         '<img src="'+ iconArray[weather.daily.data[0].icon] +'" style="width: 30%">' +
                         '<p>' + weather.daily.data[0].temperatureHigh + '° F' + ' / ' + weather.daily.data[0].temperatureLow + '° F' + '</p>' +
-                        '<p>' + "The Sky is " + weather.daily.data[0].summary + '</p>' +
+                        '<p>' + "The weather is " + weather.daily.data[0].summary + '</p>' +
                         '<p>' + "Humidity: " + weather.daily.data[0].humidity + "%" + '</p>' +
                         '<p>' + "Wind: " + weather.daily.data[0].windSpeed + " MPH" + '</p>' +
                         '<p>' + "Pressure: " + weather.daily.data[0].pressure + '</p>' +
@@ -120,10 +115,10 @@
                     //Tomorrows weather card
                     $('.Tomorrow-weather').empty().append(
                         '<div>' +
-                        '<h5>' + "Tomorrow Weather " + '</h5>' +
+                        '<h3>' + "Tomorrow's Forecast " + '</h3>' +
                         '<img src="'+ iconArray[weather.daily.data[1].icon] +'" style="width: 30%">' +
                         '<p>' + weather.daily.data[1].temperatureHigh + '° F' + ' / ' + weather.daily.data[1].temperatureLow + '° F' + '</p>' +
-                        '<p>' + "The Sky is " + weather.daily.data[1].summary + '</p>' +
+                        '<p>' + "The weather will be " + weather.daily.data[1].summary + '</p>' +
                         '<p>' + "Humidity: " + weather.daily.data[1].humidity + "%" + '</p>' +
                         '<p>' + "Wind: " + weather.daily.data[1].windSpeed + " MPH" + '</p>' +
                         '<p>' + "Pressure: " + weather.daily.data[1].pressure + '</p>' +
@@ -132,10 +127,10 @@
                     //Next Day weather card
                     $('.Next-weather').empty().append(
                         '<div>' +
-                        '<h5>' + "Next Day Weather " + '</h5>' +
+                        '<h3>' + "The Next Day Forecast " + '</h3>' +
                         '<img src="'+ iconArray[weather.daily.data[2].icon] +'" style="width: 30%">' +
                         '<p>' + weather.daily.data[2].temperatureHigh + '° F' + ' / ' + weather.daily.data[2].temperatureLow + '° F' +'</p>' +
-                        '<p>' + "The Sky is " + weather.daily.data[2].summary + '</p>' +
+                        '<p>' + "The weather will be " + weather.daily.data[2].summary + '</p>' +
                         '<p>' + "Humidity: " + weather.daily.data[2].humidity + "%" + '</p>' +
                         '<p>' + "Wind: " + weather.daily.data[2].windSpeed + " MPH" + '</p>' +
                         '<p>' + "Pressure: " + weather.daily.data[2].pressure + '</p>' +
@@ -151,6 +146,7 @@
                 center:  [-98.4936, 29.4241]
             });
 
+
             $('#go-getter').click(function(e){
                 e.preventDefault();
                 var longitude = long.value;
@@ -160,9 +156,20 @@
                     geocode(result, mapboxToken).then(function (result2) {
                         map.setCenter(result2);
                         map.setZoom(15);
-                        var marker = new mapboxgl.Marker()
+
+                        var markerOptions = {
+                            color: "#ff0000",
+                            draggable: true
+                        };
+
+                        var marker = new mapboxgl.Marker(markerOptions)
                             .setLngLat(result2)
                             .addTo(map);
+
+                        marker.on('dragend',function () {
+                            var LngLat = marker.getLngLat();
+                            getWeather(LngLat.lat,LngLat.lng)
+                        });
                     });
                 });
 
