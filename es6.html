@@ -7,7 +7,10 @@
 <body>
 <h1>Learning about ECMAScript2016</h1>
 <div id="message"></div>
-<script src="js/es6.js"></script>
+<div id="message2"></div>
+<!--<script src="js/es6.js"></script>-->
+<!--<script src="js/map-filter-reduce-lesson.js"></script>-->
+<script src="js/map-filter-reduce.js"></script>
 <script>
     // old way
     // console.log(Math.pow(2, 8)) // === 256
@@ -35,102 +38,102 @@
     //explore();
 
     // with block scope
-    {
-        var varSecret = "var";
-        let letSecret = "let";
-        const constSecret = "const";
-    }
-
-    console.log(varSecret);
+    // {
+    //     var varSecret = "var";
+    //     let letSecret = "let";
+    //     const constSecret = "const";
+    // }
+    //
+    // console.log(varSecret);
     // console.log(letSecret);
     // console.log(constSecret);
 
-    for(let i = 0; i < 10; i++){
+    // for(let i = 0; i < 10; i++){
         // ...
-    }
+    // }
 
     // console.log(i);
 
-    const fruits = ["apple", "orange", "banana", "pineapple", "kiwi"];
-    fruits.push("mango");
-    fruits[0] = "lemon";
+    // const fruits = ["apple", "orange", "banana", "pineapple", "kiwi"];
+    // fruits.push("mango");
+    // fruits[0] = "lemon";
 
     // for(let i = 0; i < fruits.length; i++){
     //
     // }
 
-    for(let fruit of fruits){
-        console.log(fruit);
-    }
+    // for(let fruit of fruits){
+    //     console.log(fruit);
+    // }
 
-    let dog = {
-        name:"dog",
-        breed:"chihuahua"
-    }
+    // let dog = {
+    //     name:"dog",
+    //     breed:"chihuahua"
+    // }
 
-    console.log("Our " + dog.breed +" is named "+ dog.name +".");
-    console.log(`Our ${dog.breed} is named ${dog.name}.`);
+    //console.log("Our " + dog.breed +" is named "+ dog.name +".");
+    //console.log(`Our ${dog.breed} is named ${dog.name}.`);
 
-    document.getElementById("message").innerHTML = `<p>Our ${dog.breed} is named ${dog.name}.</p>
-                                                <p>He's a good dog!</p>`;
+    //document.getElementById("message").innerHTML = `<p>Our ${dog.breed} is named ${dog.name}.</p>
+      //                                          <p>He's a good dog!</p>`;
 
-    const ourFunction = function(name){
-        console.log(`Hello ${name}!`);
-    };
-
-    ourFunction("Europa");
-
-    const newFunction = (name) => {
-        console.log(`Hello ${name}!`);
-    };
-
-    newFunction("Europa");
-
-    const something = (stuff) => {
-        console.log(stuff);
-    }
-
-    something("I like the color orange");
+    // const ourFunction = function(name){
+    //     console.log(`Hello ${name}!`);
+    // };
+    //
+    // ourFunction("Europa");
+    //
+    // const newFunction = (name) => {
+    //     console.log(`Hello ${name}!`);
+    // };
+    //
+    // newFunction("Europa");
+    //
+    // const something = (stuff) => {
+    //     console.log(stuff);
+    // }
+    //
+    // something("I like the color orange");
 
     // document.getElementById("message").innerHTML = `Programmed to work and not to feel, hello world.`;
 
-    const addSeven = function (num){
-        return num + 7;
-    };
-
-    const add7 = num => num + 7;
-
-    console.log(addSeven(14));
-    console.log(add7(14));
-
-    function sayHello(name){
-        if(name){
-            return "Hello, " + name + "!";
-        }else{
-            return "Hello, Codeup!"
-        }
-    }
-
-    console.log(sayHello("Europa"));
-    console.log(sayHello());
-
-    const newHello = (name = "Codeup") => `Hello, ${name}!`;
+    // const addSeven = function (num){
+    //     return num + 7;
+    // };
+    //
+    // const add7 = num => num + 7;
+    //
+    // console.log(addSeven(14));
+    // console.log(add7(14));
+    //
+    // function sayHello(name){
+    //     if(name){
+    //         return "Hello, " + name + "!";
+    //     }else{
+    //         return "Hello, Codeup!"
+    //     }
+    // }
+    //
+    // console.log(sayHello("Europa"));
+    // console.log(sayHello());
+    //
+    // const newHello = (name = "Codeup") => `Hello, ${name}!`;
 
     // const newHello = (name = "Codeup") =>{
     //     return `Hello, ${name}!`;
     // };
 
-    console.log(newHello("Europa"));
-    console.log(newHello());
+    // console.log(newHello("Europa"));
+    // console.log(newHello());
 
     //default params are like saying
     //let name;
     //if (!name) name = defaultVal
 
-    const friend = {
-        name: "Calvin",
-        age: 7
-    }
+    // const friend = {
+    //     name: "Calvin",
+    //     age: 7
+    // }
 
 </script>
 </body>

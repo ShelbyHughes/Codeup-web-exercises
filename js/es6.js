@@ -102,4 +102,4 @@ for(let developer of developers){
 };
 list += `</ul>`;
 
-document.getElementById("message").innerHTML = list;
+document.getElementById("message2").innerHTML = list;
