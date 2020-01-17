@@ -5,12 +5,16 @@
     <title>Dark Sky Project</title>
     <style>
         .weatherCards{
-            background-color: lightgrey;
-            border: 1px solid grey;
+            background-color: lightyellow;
+            border: 1px solid yellow;
             text-align: center;
         }
         .mainBackground{
-            background-color: skyblue;
+            background-image: url("img/blue-clouds-day-fluffy-53594.jpeg");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         #map{
             width: 100%;
@@ -94,7 +98,7 @@
     };
         "use strict";
         $(document).ready(function () {
-            getWeather(29.4241, -98.4936)
+            getWeather(29.4241, -98.4936);
             function getWeather(latitude, longitude){
                 var weather =  $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyToken + "/" + latitude +',' + longitude);
                 weather.done(function(weather){
@@ -136,6 +140,21 @@
                         '<p>' + "Pressure: " + weather.daily.data[2].pressure + '</p>' +
                         '</div>');
 
+                    // var dateObject = new Date(weather.currently.time * 1000);
+                    // console.log(dateObject.toString())
+
+                    // weekly card
+                    // $('.Next-weather').empty().append(
+                    //     '<div>' +
+                    //     '<h3>' + "The Weekly Forecast " + '</h3>' +
+                    //     '<p>' + dateObject.toString() + ' '+  '</p>' +
+                    //     '<p>' + weather.daily.data[2].temperatureHigh + '° F' + ' / ' + weather.daily.data[2].temperatureLow + '° F' +'</p>' +
+                    //     '<p>' + "The weather will be " + weather.daily.data[2].summary + '</p>' +
+                    //     '<p>' + "Humidity: " + weather.daily.data[2].humidity + "%" + '</p>' +
+                    //     '<p>' + "Wind: " + weather.daily.data[2].windSpeed + " MPH" + '</p>' +
+                    //     '<p>' + "Pressure: " + weather.daily.data[2].pressure + '</p>' +
+                    //     '</div>');
+
                 });
             }
             mapboxgl.accessToken = mapboxToken;
@@ -158,7 +177,7 @@
                         map.setZoom(15);
 
                         var markerOptions = {
-                            color: "#ff0000",
+                            color: "yellow",
                             draggable: true
                         };
 
@@ -172,12 +191,8 @@
                         });
                     });
                 });
-
-                getWeather(lat.value,long.value);
-            })
+            });
          });
-
-
 </script>
 </body>
 </html>
