@@ -391,6 +391,41 @@
     // }
     //
     // console.log(averageHeight(hamsters));
+
+    // 1-21-2020
+
+    // Anagrams are words that share all the same letters
+    // Write a function (using modern js) called isAnagram
+    // that take in two strings and return true if they are
+    // anagrams of each other
+    // ex: isAnagram("listen","silent") returns true
+
+    // function isAnagram(word1, word2){
+    //     word1 = word1.split('');
+    //     word1 = word1.sort();
+    //     word1 = word1.join('');
+    //
+    //     word2 = word2.split('');
+    //     word2 = word2.sort();
+    //     word2 = word2.join('');
+    //
+    //     if(word1 === word2){
+    //         return true;
+    //     }else{
+    //         return false;
+    //     }
+    // }
+
+    let isAnagram = (word1, word2) =>{
+        return (word1.toLowerCase().split('').sort().join() ===
+                word2.toLowerCase().split('').sort().join());
+    }
+
+    console.log(isAnagram("diarrhea", "airraid")); // false
+    console.log(isAnagram("dog", "God")); // true
+    console.log(isAnagram("cat", "tac")); // true
+    console.log(isAnagram("listen", "silent")); // true
+    console.log(isAnagram("butt", "table")); // false
 </script>
 </body>
 </html>
