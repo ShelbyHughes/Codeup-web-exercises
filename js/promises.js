@@ -12,12 +12,12 @@ console.log(wait(3000));
 wait(1000).then(() => console.log('You\'ll see this after 1 second'));
 wait(3000).then(() => console.log('You\'ll see this after 3 seconds'));
 
-const wait2 = () => {
-    return fetch("https://icanhazdadjoke.com/")
-};
-wait2().then((data) => {
-    console.log(data);
-});
+// const wait2 = () => {
+//     return fetch("https://icanhazdadjoke.com/")
+// };
+// wait2().then((data) => {
+//     console.log(data);
+// });
 
 // fetch('https://api.github.com/users')
 //     .then(resp =>{
