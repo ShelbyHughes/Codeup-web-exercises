@@ -2,6 +2,6 @@
   "name": "js",
   "version": "1.0.0",
   "dependencies": {
-    "jspdf": "^1.0.0"
+    "jspdf": "^2.3.1"
   }
 }
